@@ -1,16 +1,14 @@
 # JDK 설치
 1. jdk 8을 검색하여 oracle사이트로 들어간다.
 
-2. Java SE Development Kit 8u202 -> 자신의 운영체제에 맞는 설치파일 다운 (로그인 필요)
+2. Java SE Development Kit 8u202 -> 자신의 운영체제에 맞는 설치파일 다운 (로그인 필요)  
   - 운영체제 알아보는 법 : 내 PC 우클릭 -> 속성 -> 시스템 종류 확인
 
   - Java SE Development Kit 8u202?  
-    - java se : standard edition. 자바 언어의 핵심 기능 제공하는 에디션
-    - java developmet kit : 이게 JDK. 자바 프로그램을 실행하기 위한 JRE(java runtime environment)뿐만  
-    아니라 자바 개발에 필요한 컴파일러, 디버거와 같은 명령어 개발도구를 추가 한 것.
-    - 8u202 : 버전 8. 현재 17까지 나왔음에도 버전 8을 이용하는 이유?  
-    18년 오라클이 자바를 유료 구독형으로 개편하면서, 버전 8 이후부터는 보안 업데이트가 6개월 까지만 가능하게 변경되었다. 따라서 JDK 8 버전 이상을 무료( Free )로 이용하기 위해서는 오라클이 아닌  
-    Open JDK ( https://openjdk.java.net/ )를 통해 이용하면 된다.
+     - java se : standard edition. 자바 언어의 핵심 기능 제공하는 에디션
+     - java developmet kit : 이게 JDK. 자바 프로그램을 실행하기 위한 JRE(java runtime environment)뿐만 아니라 자바 개발에 필요한 컴파일러, 디버거와 같은 명령어 개발도구를 추가 한 것.
+     - 8u202 : 버전 8. 현재 17까지 나왔음에도 버전 8을 이용하는 이유?  
+    18년 오라클이 자바를 유료 구독형으로 개편하면서, 버전 8 이후부터는 보안 업데이트가 6개월 까지만 가능하게 변경되었다. 따라서 JDK 8 버전 이상을 무료( Free )로 이용하기 위해서는 오라클이 아닌 Open JDK ( https://openjdk.java.net/ )를 통해 이용하면 된다.
 
 # 환경변수 설정
 > 환경변수를 설정하는 이유?  

@@ -13,6 +13,7 @@ public class P101_2 {
 		int q = bignum / smallnum;
 		int m = bignum % smallnum;		
 		
-		System.out.println(bignum + "을 " + smallnum + "으로 나눈 몫은 " + q + "이고 나머지는 " + m + "입니다.");
+		// System.out.println(bignum + "을 " + smallnum + "으로 나눈 몫은 " + q + "이고 나머지는 " + m + "입니다.");
+		System.out.printf("%d을 %d으로 나눈 몫은 %d이고 나머지는 %d입니다.", bignum, smallnum, q, m);
 	}
 }

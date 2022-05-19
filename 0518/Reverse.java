@@ -9,9 +9,9 @@ public class Reverse {
 		System.out.print("*5자리* 정수를 입력하시오: ");
 		int n = input.nextInt();
 		int digit1 = n / 10000;
-		int digit2 = (n % 10000) / 1000;
-		int digit3 = (n % 1000) / 100;
-		int digit4 = (n % 100) / 10;
+		int digit2 = (n % 10000) / 1000; //or (n/1000)%10
+		int digit3 = (n % 1000) / 100; //or (n/100)%10
+		int digit4 = (n % 100) / 10; //or (n/10)%10
 		int digit5 = n % 10;
 		
 		System.out.print("역순 출력: ");

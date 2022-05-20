@@ -2,7 +2,7 @@ public class IntegerTypes {
 	public static void main(String args[]) {
 		byte b = 100;
 		short s = 30000;
-		int i = 10_000_000; //자릿수 표현! ,쉼표(X)->컴파일에러 _언더바(O)
+		int i = 10_000_000; //자릿수 표현! 쉼표(X)->컴파일에러, 언더바(O)! 기본형은 int
 		long l = 123456789L; //l(L)을 붙여야 롱타입이라는걸 인식함
 		
 		/*

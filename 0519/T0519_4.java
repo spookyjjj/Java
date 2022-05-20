@@ -14,20 +14,21 @@ public class T0519_4 {
 		
 		System.out.println("");
 		
-		System.out.println("2. 정수 3개를 순서대로 입력하세요.");
+		System.out.println("2. 한 글자 정수를 순서대로 3개 입력하세요.");
 		int x = input.nextInt();
 		int y = input.nextInt();
 		int z = input.nextInt();
 		System.out.println("연속된 수인가? " + ((x + 1 == y)&&(x + 2 == z)));
+		//System.out.println(y == x + 1 && y == z - 1);라고 해도 됨! 우선순위가 산술연산자->관계연산자->논리연산자 순서
 		
 		System.out.println("");
 		
 		System.out.print("3. 4자리 정수를 입력하세요: ");
 		int four = input.nextInt();
-		// System.out.println("대칭인가? " + ((four % 11) == 0 ))
+		// System.out.println("대칭인가? " + ((four % 11) == 0 )) -> (X) 이건 대칭수가 아닌 11의 배수도 참으로 출력하므로
 		int digit1 = four / 1000;
-		int digit2 = (four / 100) % 10;
-		int digit3 = (four / 10) % 10;
+		int digit2 = (four / 100) % 10; //(four % 1000) / 100;
+		int digit3 = (four / 10) % 10; //(four % 100) / 10;
 		int digit4 = four % 10;
 		System.out.println("대칭인가? " + ((digit1 == digit4)&&(digit2 == digit3)));
 	}

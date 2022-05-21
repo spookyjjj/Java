@@ -7,7 +7,7 @@ public class IntegerToString {
 		int a = 12345;
 		// String strNum1 = a; //★타입이 맞지 않는다는 컴파일에러 
 		// String strNum1 = "a"; // 이름 a가 아닌 그냥 a로 인식됨
-		// String strNum1 = (String) a; // 형변환도 안먹힘 int cannot be converted to String
+		// String strNum1 = (String) a; //★형변환도 안먹힘 int cannot be converted to String
 
 		//해결책1
 		System.out.println("~ String.valueOf(이름)이용 ~");

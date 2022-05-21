@@ -14,7 +14,7 @@ public class MiniCal {
 		
 		String result; 
 		if (cal.equals("+")) {
-			result = "" + (x + y); //괄호 없으면 앞에서 부터 결합이 일어나니깐 그냥 x값 y값이 붙어버림
+			result = "" + (x + y); //문자열 뒤로는 다 결합 -> 괄호로 연산 먼저 일어나게
 		} else if(cal.equals("-")) {
 			result = "" + (x - y);
 		} else if(cal.equals("*")) {
@@ -22,7 +22,7 @@ public class MiniCal {
 		} else if(cal.equals("/")) {
 			result = "" + (x / y);
 		} else {
-			result = "똑바로 입력해~!";
+			result = "똑바로 입력해~!"; //이거 하려고 result를 int가 아니라 String으로 한거! 
 		}
 		System.out.println(result);
 	}

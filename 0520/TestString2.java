@@ -1,6 +1,6 @@
 public class TestString2 {
 	public static void main(String args[]) {
-		String hello = "Hello"; //내부에 index를 가지며, 0부터 시작한다~!!
+		String hello = "Hello"; //★내부에 index를 가지며, 0부터 시작한다~!!
 		
 		char h = hello.charAt(0); //String안에 charAt이라는 메소드 (Scanner의 nextInt와 마찬가지) 
 		System.out.println(h);

@@ -26,3 +26,7 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - String (참조형type)
   - 조건문 (if-then, if-else, if-else if)
   - block scope
+
+- [220523](./Java정리/220523.md)
+  - if-else 팁
+  - 반복문 (while, for)

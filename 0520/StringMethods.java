@@ -11,7 +11,7 @@ public class StringMethods {
 		int index2 = hello.indexOf("l", 4); //4번째 index부터 l을 찾아라
 		System.out.println(index2);
 
-		int index3 = hello.lastIndexOf("l"); //마지막 l을 찾아라
+		int index3 = hello.lastIndexOf("l"); //마지막 l을 찾아라 = 오른쪽에서 부터 찾아라
 		System.out.println(index3);		
 	}
 }

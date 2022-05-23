@@ -27,8 +27,8 @@ public class DiffBigSmall {
 		System.out.printf("%d에서 %d를 나눈 몫은 %d이며, 나머지는 %d입니다.", a, b, a / b, a % b);
 		
 		/*
-		int div
-		int mod	
+		int div;
+		int mod;
 		if (a != 0 && b != 0) {
 			if (a >= b) {
 				div = a / b;	//괄호 안에서 int div라고 했다면, 괄호 벗어나는 순간 div라는 이름이 뭔지 모름

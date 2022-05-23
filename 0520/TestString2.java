@@ -7,7 +7,9 @@ public class TestString2 {
 		System.out.println(hello.charAt(1));
 		System.out.println(hello.charAt(2));
 		System.out.println(hello.charAt(3));
-		System.out.println(hello.charAt(4)); //음수나 index를 초과하는 값을 입력하면 컴파일 에러
+		System.out.println(hello.charAt(4));
+		//System.out.println(hello.charAt(5)); //음수나 index를 초과하는 값을 입력하면 컴파일은 ok, 실행에러
+		//System.out.println(hello.charAt(-1)); //음수나 index를 초과하는 값을 입력하면 컴파일은 ok, 실행에러
 		
 		int length = hello.length();
 		System.out.println(length); //String안에 length이라는 메소드

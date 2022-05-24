@@ -1,6 +1,6 @@
 //사용자가 입력할 정수의 갯수를 먼저 정한 후, 그만큼의 정수를 입력하면 그들의 합과 평균 구하기
-
 //입력한 수를 짝수와 홀수로 분류하여 각각의 합과 평균을 구하기
+
 import java.util.Scanner;
 
 public class SumNumX{

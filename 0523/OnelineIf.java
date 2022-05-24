@@ -9,6 +9,9 @@ public class OnelineIf {
 			System.out.println("거짓일 경우 실행할 문장");
 		//}
 		
+		//즉, if (con) System.out.println("참일 경우"); System.out.println("거짓일 경우");
+		//이렇게 다 같이 한 줄로 표현가능~
+		
 		System.out.println("프로그램 종료");
 		
 		

@@ -9,5 +9,7 @@ public class Count{
 			}
 		}
 		System.out.println(count);
+		
+		System.out.println((400 / 13) - (300 / 13));
 	}
 }

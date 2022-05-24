@@ -11,14 +11,14 @@ public class T0523 {
 	public static void main (String args[]) {
 		Scanner input = new Scanner(System.in);
 		
-		1. 2의 제곱수 32개 나열하고 결과값을 확인해 보세요 예)2 4 8 16 32 ...
+		//1. 2의 제곱수 32개 나열하고 결과값을 확인해 보세요 예)2 4 8 16 32 ...
 		long square = 1;
 		for (int i = 1; i <= 32; i++) {
 			square *= 2;
 			System.out.println(square);
 		}
 		
-		2. 사용자의 입력 n, m애 대해 n^m을 출력
+		//2. 사용자의 입력 n, m애 대해 n^m을 출력
 		System.out.println("n^m의 n과 m을 순서대로 입력하세요: ");
 		int n = input.nextInt();
 		int m = input.nextInt();
@@ -30,7 +30,7 @@ public class T0523 {
 		
 		//3. 자판기! 돈 입력 -> 1번 콜라:1500, 2번 사이다:1300, 3번 계산 -> 총 몇 개의 캔을 구입하고, 거스름돈은 얼마인지 외상안됨
 		//3번계산 할 때까지 input창 계속 반복
-		System.out.print("가진돈을 입력하세요: ");
+		System.out.print("가진 돈을 입력하세요: ");
 		int money = input.nextInt();
 		
 		int pick = 0;
@@ -61,6 +61,8 @@ public class T0523 {
 			System.out.printf("콜라 %d개, 사이다 %d개 구매하여 거스름돈은 %d원 입니다\n", coke, cider, money);	
 		}
 		System.out.println("이용해주셔서 감사합니다");
+		//외부에 boolean con = true로 두고 while (con) {}을 진행후에, pick이 3일 때, con=!con으로 만듦으로써 while을 탈출~!
+	
 		
 		//4. 사용자가 입력한 정수의 약수를 나열하고 총 개수를 출력
 		//나누었을때 나머지가 0인것들 골라내기 until 자기자신으로 나눌때까지
@@ -79,8 +81,8 @@ public class T0523 {
 		//입력할때마다 둘 중 큰수만 골라내고 작은수는 버리고
 		System.out.println("정수 5개를 입력해주세요.");
 		
-		int biggest = 0;
-		for (int i = 1; i <= 5; i++) {
+		int biggest = input.nextInt();
+		for (int i = 1; i <= 4; i++) {
 			int big = input.nextInt();
 			if (big >= biggest) {
 				biggest = big;

@@ -24,9 +24,17 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
 - [220520](./Java정리/220520.md)
   - 형변환
   - String (참조형type)
-  - 조건문 (if-then, if-else, if-else if)
+  - if-then, if-else, if-else if (조건문)
   - block scope
 
 - [220523](./Java정리/220523.md)
   - if-else 팁
-  - 반복문 (while, for)
+  - while, for (반복문)
+
+- [220524](./Java정리/220524.md)
+  - do-while, break, continue (반복문)
+  - Random (참조형type)  
+
+- [220525](./Java정리/220525.md)  
+  - switch-case (조건문)
+  - 중첩반복문★

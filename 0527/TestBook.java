@@ -3,14 +3,15 @@ class Book {
 	String title;
 	String author;
 	
-	void printAll() { //void printAll(String a, String b)로 할 때
-		// String title;
-		// String author;
-		// title = a;
-		// author = b;
+	void printAll() { 
 		System.out.println("책 제목: " + title);
 		System.out.println("저자: " + author);
 	}
+	
+	// void printAll(String title, String author){
+		// System.out.println("책 제목: " + title);
+		// System.out.println("저자: " + author);
+	// }
 }
 
 public class TestBook {
@@ -18,6 +19,9 @@ public class TestBook {
 		Book b = new Book();
 		b.title = "그것이 알고싶다";
 		b.author = "김상중";
-		b.printAll(); // b.printAll("그것이", "김상중");
+		b.printAll(); 
+		
+		// Book b = new Book();
+		// b.printAll("저것도 알고싶다", "김하중");
 	}
 }

@@ -7,7 +7,7 @@ public class TestMethod2 {
 		
 		return sum; //int sum안에 들은 값을 가지고 main으로 복귀
 		//★return은 break와 유사! 함수를 종료를 하고 호출한 곳으로 리턴값가지고 돌아감
-		//★★return = sum; 아니라는것~!!!
+		//★★return = sum; 아니라는것~!!! '=' 안붙는다~!!
 	}
 	
 	public static double pi() {

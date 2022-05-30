@@ -6,9 +6,12 @@ class Date {
 	void dashfomat() {
 		System.out.printf("%d-%d-%d\n", year, month, day);
 	}
-	void slashfomat() {
-		System.out.printf("%d/%d/%d\n", month, day, year);
+	String getYearTwoDigit() {
+		return String.format("%02d", year % 100);
 	}
+	void slashfomat() {
+		System.out.printf("%d/%d/%s\n", month, day, getYearTwoDigit());
+	} //★메소드 안에서 자기가 만든 메소드 호출이 가능
 }
 
 public class TestDate {
@@ -17,6 +20,10 @@ public class TestDate {
 		today.year = 2022;
 		today.month = 05;
 		today.day = 27;
+		
+		String year = today.getYearTwoDigit();
+		System.out.println(year);
+		
 		today.dashfomat();
 		today.slashfomat();
 	}

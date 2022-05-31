@@ -38,10 +38,10 @@ public class CircleTest{
 		Point p = new Point(25, 78);
 		Circle c = new Circle(p, 10); //Circle객체를 생성할 때, Point객체 참조값을 넘긴다
 		
-		System.out.println(c.getCenter()); //참조형들은 내용을 지네만의 문자열화시켜서 기억하고있음
+		System.out.println(c.getCenter()); //★참조형들은 내용을 지네만의 문자열화시켜서 기억하고있음
 		
-		System.out.println(c.getX()); //c는 Circle타입이라서 getX()할 수 없다
-		System.out.println(c.getCenter().getX()); //c.getCenter()해서 Point타입으로 받아낸 후에 getX()을 함
+		System.out.println(c.getX()); //★★c는 Circle타입이라서 getX()할 수 없다
+		System.out.println(c.getCenter().getX()); //★c.getCenter()해서 Point타입으로 받아낸 후에 getX()을 함
 		System.out.println(c.getCenter().getY());
 	}
 }

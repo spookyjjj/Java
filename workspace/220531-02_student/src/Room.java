@@ -19,53 +19,29 @@ public class Room {
 	public int roomAver() {
 		return (s1.getAver() + s2.getAver() + s3.getAver()) / 3;
 	}
-	public Student roomMaxStudent() { //동일평균이면 한명만 보여주는데, 우선순위가 1 2 3 순서
-		Student max;
+	public Student roomTop() { //동일평균이면 한명만 보여주는데, 보여줄 우선순위가 1 2 3 순서인 case
+		Student top;
 		if ((s1.getAver() >= s2.getAver()) && (s1.getAver() >= s3.getAver())) {
-			max = s1;
+			top = s1;
 		} else if (s2.getAver() >= s3.getAver()) {
-			max = s2;
+			top = s2;
 		} else {
-			max = s3;
+			top = s3;
 		}
-		return max;
+		return top;
 	}
-	//동일 평균이면 그애들 다 보여주는데 출력순서가 1 2 3
+	// 동일 평균이면 그애들 다 보여주는데 출력순서가 1 2 3
+	// 최대값 애 한명 구하고, 걔 평균이랑 동일이면 문자열에 추가하는 방법으로..
 	public Student compare(Student a, Student b) {
-		if (a.getAver() == b.getAver()) {
-			return null;
-		} else if (a.getAver() > b.getAver()) {
-			return a;
-		} else {
-			return b;
-		}
-	}
-	public void top() { //Student를 리턴 타입으로 해서 변수 2개, 3개를 리턴 받는건 불가능??????????????????
-		if(compare(s1, s2) == null) {
-			if(compare(s1, s3) == null) {
-				System.out.printf("공동1등 : %s, %s, %s\n", s1.getName(), s2.getName(), s3.getName());
-			} else {
-				System.out.println(compare(s1, s3).getName());
-			}
-		} else if (compare(s3, compare(s1, s2)) == null) {
-				System.out.printf("공동1등 : %s, %s\n", compare(s1, s2).getName(), s3.getName());
-		} else {
-				System.out.println(compare(s3, compare(s1, s2)).getName());
-		}
-		
-	}
-
-	//또는,, 최대값 애 한명 구하고, 점수 동일이면 추가하는 방식은?
-	public Student compare2(Student a, Student b) {
 		if (a.getAver() >= b.getAver()) {
 			return a;
 		} else {
 			return b;
 		}
 	}
-	public void top2() {
+	public void top() {
 		String print = "1등 : ";
-		int t = compare2(s3, compare2(s1, s2)).getAver();
+		int t = compare(s3, compare(s1, s2)).getAver();
 		if (t == s1.getAver()) {
 			print = print + s1.getName() + " ";
 		} 
@@ -77,6 +53,32 @@ public class Room {
 		} 
 		System.out.println(print);
 	}
+	//동일 평균이면 그애들 다 보여주는데 출력순서가 1 2 3
+	public Student compare2(Student a, Student b) {
+		if (a.getAver() == b.getAver()) {
+			return null;
+		} else if (a.getAver() > b.getAver()) {
+			return a;
+		} else {
+			return b;
+		}
+	}
+	public void top2() { //Student를 리턴 타입으로 해서 변수 2개, 3개를 리턴 받는건 불가능?? 응 불가능
+		if(compare2(s1, s2) == null) {
+			if(compare2(s1, s3) == null) {
+				System.out.printf("공동1등 : %s, %s, %s\n", s1.getName(), s2.getName(), s3.getName());
+			} else if (compare2(s1, s3).equals(s1)) {
+				System.out.printf("공동1등 : %s, %s\n", s1.getName(), s2.getName());
+			} else {
+				System.out.println(s3.getName());
+			}
+		} else if (compare2(s3, compare2(s1, s2)) == null) {
+				System.out.printf("공동1등 : %s, %s\n", compare2(s1, s2).getName(), s3.getName());
+		} else {
+				System.out.println(compare2(s3, compare2(s1, s2)).getName());
+		}
+	}
+	
 //	public void roomMaxName() {
 //		if (s1.getAver() == s2.getAver() && s1.getAver() == s3.getAver()) {
 //			System.out.printf("공동1등 : %s, %s, %s", s1.getName(), s2.getName(), s3.getName());

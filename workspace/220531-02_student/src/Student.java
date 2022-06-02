@@ -11,7 +11,7 @@ public class Student {
 			this.eng = eng;
 			this.math = math;
 		}
-
+		
 		public String getName() {
 			return name;
 		}
@@ -47,6 +47,10 @@ public class Student {
 		
 		public int getAver() {
 			return (kor + eng + math) / 3;
+		}
+		
+		public void showDetail() {
+			System.out.printf("이름: %s\n국어점수: %d\n영어점수: %d\n수학점수: %d\n평균: %d\n", getName(), getKor(), getEng(), getMath(), getAver());
 		}
 }
 

@@ -1,0 +1,108 @@
+//학생 관리 프로그램
+//콘솔입출력
+//반에 학생을 등록. 최대 3명
+//반의 학생이름 목록 볼수 있게 학생별 평균도 볼수 있구 1등학생의 정보도 볼수 있구~
+//기존에 있던 클래스를 수정해야한다면 수정을 해야 하는 이유와 전 후가 어떻게 바뀌었는지 전부 기록하기
+import java.util.Scanner;
+public class Manage {
+	Scanner s = new Scanner(System.in);
+	Room r = new Room();
+	public void manage() {
+		System.out.println("---반을 구성합니다---\n학생 정보를 입력해주세요.");
+		Student s1 = new Student(studentNameInput(),studentKorInput(),studentEngInput(),studentMathInput());
+		System.out.println("학생 등록이 완료되었습니다. (1명)");
+		r.setS1(s1);
+		Student s2 = new Student(studentNameInput(),studentKorInput(),studentEngInput(),studentMathInput());
+		System.out.println("학생 등록이 완료되었습니다. (2명)");
+		r.setS2(s2);
+		Student s3 = new Student(studentNameInput(),studentKorInput(),studentEngInput(),studentMathInput());
+		System.out.println("학생 등록이 완료되었습니다. (3명)");
+		r.setS3(s3);
+		
+		while (true) {
+			int m = menu();
+			if (m == 1) {
+				while (true) {
+					r.printAllStudent();
+					int num = selectDetail();
+					if (num == 0) {
+						break;
+					} else if (num == 1) {
+						s1.showDetail();
+					} else if (num == 2) {
+						s2.showDetail();
+					} else if (num == 3) {
+						s3.showDetail();
+					}
+				}
+			}
+			if (m == 2) {	
+				r.printAllStudent();
+				changeStudent(selectChange());
+			} 
+			if (m == 3) {
+					System.out.printf("반 평균은 %d점 입니다\n", r.roomAver());
+			}
+			if (m == 4) {
+				r.top2();
+			}
+			if (m == 5) {
+				break;
+			}
+		}	
+	}
+	private int menu() {
+		System.out.println("---원하는 행동을 입력하십시오---\n1.반 구성원 보기\n2.반 구성원 변경\n3.반 평균\n4.반 1등\n5.종료");
+		return s.nextInt();
+	}
+	private String studentNameInput() {
+		System.out.print("학생의 이름은 무엇입니까? ");
+		return s.next();
+	}
+	private int studentKorInput() {
+		System.out.print("그 학생의 국어 점수는 몇 점 입니까? ");
+		return s.nextInt();
+	}
+	private int studentEngInput() {
+		System.out.print("그 학생의 영어 점수는 몇 점 입니까? ");
+		return s.nextInt();
+	}
+	private int studentMathInput() {
+		System.out.print("그 학생의 수학 점수는 몇 점 입니까? ");
+		return s.nextInt();
+	}
+	private int selectDetail() {
+		System.out.println("세부정보를 알고자 하는 학생을 선택하십시오. 이전메뉴로 돌아가기는 0");
+		return s.nextInt();
+	}
+	private int selectChange() {
+		System.out.println("빼고자 하는 학생을 선택하십시오.");
+		return s.nextInt();
+	}
+	private void changeStudent(int a) {
+		if (a == 1) {
+			System.out.println("새로운 학생의 정보를 입력합니다");
+			r.getS1().setName(studentNameInput());
+			r.getS1().setKor(studentKorInput());
+			r.getS1().setEng(studentEngInput());
+			r.getS1().setMath(studentMathInput());					
+		} else if (a == 2) {
+			System.out.println("새로운 학생의 정보를 입력합니다");
+			r.getS2().setName(studentNameInput());
+			r.getS2().setKor(studentKorInput());
+			r.getS2().setEng(studentEngInput());
+			r.getS2().setMath(studentMathInput());		
+		} else if (a == 3) {
+			System.out.println("새로운 학생의 정보를 입력합니다");
+			r.getS3().setName(studentNameInput());
+			r.getS3().setKor(studentKorInput());
+			r.getS3().setEng(studentEngInput());
+			r.getS3().setMath(studentMathInput());		
+		} else {
+			System.out.println("학생 번호를 확인 후 다시 시도해 주세요");
+		}
+	}
+}
+//학생을 이름 으로 찾아 정보출력하기 (.equals()이용)
+//학생의 특정 정보만을 수정하는 메소드
+//학생정보를 여러개 저장해 놓고 골라서 반에 담기

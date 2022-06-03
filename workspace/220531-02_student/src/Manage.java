@@ -5,6 +5,42 @@
 //기존에 있던 클래스를 수정해야한다면 수정을 해야 하는 이유와 전 후가 어떻게 바뀌었는지 전부 기록하기
 import java.util.Scanner;
 public class Manage {
+	/* 
+	******선생님 풀이******
+	private Room r; //★Manage에서 쓸 Room을 아예 필드값으로 가져옴! 이름은 room
+	public Student inputStudent() { //★리턴으로 Student를 받는다는것!!
+		Scanner scan = new Scanner(System.in);
+		System.out.println("학생의 정보, 이름, 국영수 순으로 입력해 주세요");
+		String name = scan.nextLine();
+		int kor = scan.nextInt();
+		int eng = scan.nextInt();
+		int math = scan.nextInt();
+		
+		return new Student(name, kor, eng, math);
+	}
+	public void start() {
+		Student s1 = inputStudent();
+		Student s2 = inputStudent();
+		Student s3 = inputStudent();
+		
+		r = new Room(s1, s2, s3);
+		
+		Scanner scan = new Scanner(System.in);
+		System.out.println("메뉴");
+		System.out.println("1.학생이름보기 2.총 평균 보기 3.1등보기");
+		int num = scan.nextInt();
+		
+		if (num == 1) {
+			r.printAllStudent();
+		} else if (num == 2) {
+			System.out.println("총 평균" + r.roomAver());
+		} else if (num == 3) {
+			Student top = r.roomTop();
+			System.out.println(r.roomTop().getName(), r.roomTop().getAver());
+		}
+	}
+}
+*/
 	Scanner s = new Scanner(System.in);
 	Room r = new Room();
 	public void manage() {
@@ -55,11 +91,11 @@ public class Manage {
 		System.out.println("---원하는 행동을 입력하십시오---\n1.반 구성원 보기\n2.반 구성원 변경\n3.반 평균\n4.반 1등\n5.종료");
 		return s.nextInt();
 	}
-	private String studentNameInput() {
+	private String studentNameInput() { //이렇게 하지 않고 String받는 메소드 하나
 		System.out.print("학생의 이름은 무엇입니까? ");
 		return s.next();
 	}
-	private int studentKorInput() {
+	private int studentKorInput() { //Int 받는 메소드 하나 만들어서 범용성 있게 쓰는것도 좋음~ 대신 안내글은 없겠지만...
 		System.out.print("그 학생의 국어 점수는 몇 점 입니까? ");
 		return s.nextInt();
 	}

@@ -48,7 +48,8 @@ public class Room {
 	public int roomAver() {
 		return (s1.getAver() + s2.getAver() + s3.getAver()) / 3;
 	}
-	public Student roomTop() { //동일평균이면 한명만 보여주는데, 보여줄 우선순위가 1 2 3 순서인 case
+	//동일평균이면 한명만 보여주는데, 보여줄 우선순위가 1 2 3 순서인 case
+	public Student roomTop() { 
 		Student top;
 		if ((s1.getAver() >= s2.getAver()) && (s1.getAver() >= s3.getAver())) {
 			top = s1;

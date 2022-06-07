@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Manage {
 	/* 
 	******선생님 풀이******
-	private Room r; //★Manage에서 쓸 Room을 아예 필드값으로 가져옴! 이름은 room
+	private Room r; //★Manage에서 쓸 Room을 아예 필드값으로 가져옴! 이름은 r
 	public Student inputStudent() { //★리턴으로 Student를 받는다는것!!
 		Scanner scan = new Scanner(System.in);
 		System.out.println("학생의 정보, 이름, 국영수 순으로 입력해 주세요");

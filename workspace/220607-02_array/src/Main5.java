@@ -46,5 +46,19 @@ public class Main5 {
 		for (int i = 4; i >= 0; i--) {
 			System.out.println(c[i]);
 		}
+//---------------다른답안--------------
+//for반복 안하고! i++ 걸고, ★if(i == 5) i = 0;으로 반복하게 함
+//		int i = 0;
+//		while(true) {
+//			int n = scan.nextInt();
+//			if(n < 0) {
+//				break;
+//			}
+//			arr[i] = n;
+//			i++;
+//			if(i == 5) { //arr[5]의 자리는 없으니깐 arr[0]으로 복귀
+//				i = 0;
+//			}			
+//		}
 	}
 }

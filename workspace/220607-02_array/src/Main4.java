@@ -8,7 +8,7 @@ public class Main4 {
 		}
 	}
 	
-	//배열의 모든 원소를 문자열로 표현해서 반환하는 메소드
+	//배열의 모든 원소를 문자열로 표현해서 반환하는 메소드 -> indexAt사용가능 -> 문자찾기 가능
 	static String arrayToString(char[] target) {
 		String s = "";
 		for (int i = 0; i < target.length; i++) {

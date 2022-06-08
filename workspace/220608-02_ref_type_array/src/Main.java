@@ -2,7 +2,7 @@
 public class Main {
 
 	public static void main(String[] args) {
-		
+		//도식도
 		// [arr] -> {[index0]->"ABC" [index1]->"DEF" [index2]->"GHI"}
 		String[] arr = new String[3];
 		arr[0] = "ABC";

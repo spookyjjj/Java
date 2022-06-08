@@ -17,26 +17,43 @@ public class Main4 {
 			combine[i + a.length] = b[i];
 		}
 		return combine;
+//		또는, 기존의 copyOf를 사용해서
+//		int[] combine = Arrays.copyOf(a, a.length + b.length);
+//		for (int i = 0; i < b.length; i++) {
+//			combine[i + a.length] = b[i];
+//		}
+//		return combine;
 	}
 	
 	//2. 두개의 정수 배열의 합을 가지는 배열을 반환하는 메소드 [1, 2, 3] [10, 11, 12, 13, 14] -> [11, 13, 15, 13, 14]
 	public static int[] plus(int[] a, int[] b) {
-		int leng;
 		int[] plus;
 		if (a.length >= b.length) {
-			leng = a.length;
-			plus = expand(b, leng - b.length);
-			for (int i = 0; i < leng; i++) {
+			plus = expand(b, a.length - b.length);
+			for (int i = 0; i < a.length; i++) {
 				plus[i] += a[i];
 			}
 		} else {
-			leng = b.length;
-			plus = expand(a, leng - a.length);
-			for (int i = 0; i < leng; i++) {
+			plus = expand(a, b.length - a.length);
+			for (int i = 0; i < b.length; i++) {
 				plus[i] += b[i];
 			}
 		}
 		return plus;
+//		또는 기존의 copyOf를 사용해서
+//		int[] plus;
+//		if (a.length >= b.length) {
+//			plus = expand(b, a.length);
+//			for (int i = 0; i < a.length; i++) {
+//				plus[i] += a[i];
+//			}
+//		} else {
+//			plus = expand(a, b.length);
+//			for (int i = 0; i < b.length; i++) {
+//				plus[i] += b[i];
+//			}
+//		}
+//		return plus;
 	}
 
 	public static void main(String[] args) {
@@ -44,11 +61,12 @@ public class Main4 {
 		
 		int[] larger = new int[arr.length + 2]; //더 큰 배열 박스 가져와서
 		for (int i = 0; i < arr.length; i++) {	//기존의 값을 집어넣기
-			larger[i] = arr[i];
+			larger[i] = arr[i];  
 		}
-		System.out.println(Arrays.toString(larger)); //이것을 메소드로 아예 만들어 버리기~! -> 0.메소드로 ㄱㄱ
+		System.out.println(Arrays.toString(larger));
+		//위의 과정을 메소드로 아예 만들어 버리기~! -> 0.메소드로 ㄱㄱ
 		System.out.println(Arrays.toString(expand(arr, 3))); //0번 메소드 이용
-		System.out.println(Arrays.toString(Arrays.copyOf(arr, 7))); //★Arrays.copyOf 메소드 이용 근데 이미 java에서 만든게 있음.. 뒤에건 길이값
+		System.out.println(Arrays.toString(Arrays.copyOf(arr, 7))); //★Arrays.copyOf 메소드 .. 뒤에건 길이값
 		
 		
 		int[] a = {1, 2, 3};

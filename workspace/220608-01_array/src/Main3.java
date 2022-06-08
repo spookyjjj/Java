@@ -37,13 +37,13 @@ public class Main3 {
 //		} else {
 //			return false;
 //		}
-//		--------이렇게 하면 값이 아니라, 참조하고 있는 대상(인스턴스)가 같아야 true---------
+//		--------★이렇게 하면 값이 아니라, 참조하고 있는 대상(인스턴스)가 같아야 true---------
 //		return a == b;
 	}
 	
 	public static void main(String[] args) {
 		int[] test = {50, 70, 90, 110};
-		int[] test2 = {50, 70, 50, 110};
+		int[] test2 = {60, 70, 50, 110};
 		int[] c = copyArray(test); 
 		System.out.println(Arrays.toString(c)); 
 		System.out.println(sameArray(test, c));

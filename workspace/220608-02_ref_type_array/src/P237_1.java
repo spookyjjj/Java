@@ -38,12 +38,16 @@ public class P237_1 {
 				printCurrent(sit);
 				System.out.println("몇번째 좌석을 예약하시겠습니까?");
 				int b = scan.nextInt();
-				if (sit[b-1] == 1) {
-					System.out.println("이미 예약된 좌석입니다");
+				if (b >= 1 && b <= 10) {
+					if (sit[b-1] == 1) {
+						System.out.println("이미 예약된 좌석입니다");
+					} else {
+						sit[b-1] = 1;
+						printMenu();
+						printCurrent(sit);
+					}
 				} else {
-					sit[b-1] = 1;
-					printMenu();
-					printCurrent(sit);
+					System.out.println("잘못된 입력입니다"); //없는 번호의 좌석을 입력했을때
 				}
 			} else {
 				System.out.println("1 또는 0을 입력해 주세요");

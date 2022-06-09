@@ -33,6 +33,7 @@ public class Main5 {
 		for (int i = 4; i >= 0; i--) {
 			System.out.println(b[i]);
 		}
+		
 		//2-2. 순서가 상관 없다면, int값 5개 배열 ..사용자 입력 받을 때 마다 5개 안에서 set..음수값들어오면 멈추고..
 		int[] c = new int[5];
 		Loop : //중첩반복문 전체를 빠져나오기 위해 바깥루프에 이름붙여줌
@@ -46,19 +47,31 @@ public class Main5 {
 		for (int i = 4; i >= 0; i--) {
 			System.out.println(c[i]);
 		}
-//---------------다른답안--------------
-//for반복 안하고! i++ 걸고, ★if(i == 5) i = 0;으로 반복하게 함
-//		int i = 0;
-//		while(true) {
-//			int n = scan.nextInt();
-//			if(n < 0) {
-//				break;
-//			}
-//			arr[i] = n;
-//			i++;
-//			if(i == 5) { //arr[5]의 자리는 없으니깐 arr[0]으로 복귀
-//				i = 0;
-//			}			
-//		}
+		
+		//---------------학우의 다른답안--------------
+		//for반복 안하고! i++ 걸고, ★if(i == 5) i = 0;으로 반복하게 함
+		int[] arr = new int[5];
+		int i = 0;
+		int lastIndex;
+		while(true) {
+			int n = scan.nextInt();
+			if(n <= 0) {
+				lastIndex = i - 1; //음수 넣어 멈추기 직전의 인덱스가 젤 최근에 수정된 인덱스
+				break;
+			}
+			arr[i] = n;
+			i++;
+			if(i == 5) { //arr[5]의 자리는 없으니깐 arr[0]으로 복귀
+				i = 0;
+			}			
+		}
+		//역순출력
+		for (int j = 0; j < 5; j++) { //5번 출력할건데,
+			if (lastIndex == -1) { //-1인덱스는 순환해서 4번 인덱스임
+				lastIndex = 4;
+			}
+			System.out.println(arr[lastIndex]);
+			lastIndex--;
+		}
 	}
 }

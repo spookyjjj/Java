@@ -10,10 +10,10 @@ public class Library {
 	public void setBooks(Book[] books) {
 		this.books = books;
 	}
-	public Library(Book... books) { //Book이 여러개 오면 library[0]부터 차곡차곡 쌓임
-		this.books = books;
-	}
-	public Library() {
+//	public Library(Book... books) { //Book이 여러개 오면 library[0]부터 차곡차곡 쌓임
+//		this.books = books;
+//	}
+	public Library() { //기본적으로 도서관에 꽂혀있는 책들,,기본생성자
 		//this(b1, b2, b3, b4, b5); //★애는 항상 첫줄에 있어야 한다!! 생성자는 검색은 this로!!
 		Book b1 = new Book("작별인사","김영하","복복서가","장편소설",12600);
 		Book b2 = new Book("불편한 편의점 ","김호연","나무옆의자","장편소설",12600);
@@ -29,7 +29,7 @@ public class Library {
 	
 	//책장 한 칸 늘리고 거기에 새책 하나 넣는 메소드
 	public Book[] expand(Book b) { //넣을 새 책
-		books = Arrays.copyOf(books, books.length + 1); //책장 확장
+		setBooks(Arrays.copyOf(books, books.length + 1)); //책장 확장
 		books[books.length - 1] = b; //새 책 넣기
 		return books;
 	}
@@ -40,7 +40,7 @@ public class Library {
 			System.out.println((i + 1) + ". " + books[i]);
 		}
 	}
-	public void showInfo() {
+	public void showInfo() { //라이브리에 보관된 책들 출력하는거고
 		for (int i = 0; i < books.length; i++) {
 			System.out.println("◇ " + books[i]);
 		}
@@ -60,6 +60,7 @@ public class Library {
 			books[bookNum - 1].setGenre(scan.nextLine());
 		} else if (section.equals("가격")) {
 			books[bookNum - 1].setPrice(scan.nextInt());
+			scan.nextLine();// nextInt 다음의 공백 없애기
 		} else {
 			System.out.println("잘못된 입력입니다"); //여기 손봐야한다~~~~~~
 		}
@@ -81,7 +82,7 @@ public class Library {
 	}
 	
 	//가격비교
-	//Book a Book b가져와서 두개의 가격만 뽑아낸다음 max만 리턴
+	//Book a Book b가져와서 두개의 가격만 뽑아낸다음 max인 Book만 리턴
 	private Book max(Book a, Book b) {
 		Book max;
 		if (a.getPrice() >= b.getPrice()) {
@@ -101,12 +102,12 @@ public class Library {
 		return -1;
 	}
 	
-	//가격 배열 min 0 1 2 3 4 max
+	//가격 배열 min<- 0 1 2 3 4 .. ->max
 	//books의 길이만큼의 똑같은 배열을 새로 만들어서
-	//5개 비교해서 인덱스 4번에 최고 max책 넣고 그담에 4번 뺀 4개 비교해서 인데스 3번에 넣고 ..
-	//아냐 비교할게 아니라 max의 인덱스를 알아내야겠다
+	//5개 비교해서 인덱스 4번 위치의 책과 max책을 바꿔넣기~~max의 인덱스를 알아내야겠다..
+	//그담에 4번인덱스 빼고 나머지 4개 비교해서 max과 인데스 3번을 바꿔 넣고 .. 반복..
 	private Book[] reOrgByPrice(Book[] books) {
-		Book[] re = Arrays.copyOf(books, books.length);
+		Book[] re = Arrays.copyOf(books, books.length); //re라는 카피본 생성
 //		Book max = re[0];
 //		for (int i = 0; i < re.length; i++) { 
 //			max = max(max, re[i]);
@@ -142,32 +143,28 @@ public class Library {
 		int index;
 		for (int j = 1; j <= re.length; j++) {
 			max = re[0];
-			for (int i = 0; i < re.length - j; i++) { //2개씩 비교하니깐 횟수 한번 줄여야함
+			for (int i = 1; i <= re.length - j; i++) { 
 				max = max(max, re[i]);
 			}
-			tem = re[re.length - j]; //마지막 자리 값 담아두기
-			re[re.length - j] = max; //마지막 자리에 max정보 연결
-			index = findMaxIndex(re, max);
+			tem = re[re.length - j]; //마지막 자리 값 tem에 담아두기
+			index = findMaxIndex(re, max); //배열 바뀌기 전에 max의 인덱스 외워두고
+			re[re.length - j] = max; //끝자리로 큰 수 넣어서 배열 바꿈
 			re[index] = tem; //max 가져간 빈자리에 마지막 자리 값 넣기
 		}		
 		return re;
 	}
 	
-//	public void printArr() {
-//		System.out.println(Arrays.toString(reOrgByPrice(books)));
-//	}
-	
 	//위에꺼 43210출력하면 내림차순
 	public void printPriceDown() {
 		Book[] re = reOrgByPrice(books);
-		for (int i = 0; i < re.length; i++) {
+		for (int i = re.length - 1; i >= 0; i--) {
 			System.out.println(re[i]);
 		}
 	}
 	//위에꺼 01234출력하면 오름차순
 	public void printPriceUp() {
 		Book[] re = reOrgByPrice(books);
-		for (int i = re.length - 1; i >= 0; i--) {
+		for (int i = 0; i < re.length; i++) {
 			System.out.println(re[i]);
 		}
 	}

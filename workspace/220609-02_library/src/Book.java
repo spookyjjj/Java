@@ -61,7 +61,8 @@ class Book {
 	}
 	
 	public String toString() { //Book을 출력문에 넣으면 이렇게 나옴
-		return (title + " / " + author + " / " + publisher + " / " + genre + " / " + price + "원");
+		return String.format("%-15s / %-5s / %-5s / %-5s / %,d원",title,author,publisher,genre,price);
+//		return (title + " / " + author + " / " + publisher + " / " + genre + " / " + price + "원");
 	}
 	
 	//책 한권을 추가하는 메소드

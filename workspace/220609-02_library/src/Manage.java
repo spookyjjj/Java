@@ -2,9 +2,11 @@ import java.util.Scanner;
 
 public class Manage {
 	private Library a = new Library();
+	
 	//메뉴출력 메소드
 	private int menu() {
 		Scanner scan = new Scanner(System.in);
+		
 		System.out.println("------프로그램을 선택하시오--------");
 		System.out.println("1.책 목록 보기  2.분야별 검색  3.도서 정보 수정  4.책 추가  5.프로그램 종료");
 		return scan.nextInt();
@@ -19,8 +21,6 @@ public class Manage {
 			if (num == 5) {
 				System.out.println("프로그램을 종료합니다");
 				break;
-			} else if (num == 4) {
-				a.expand(Book.makeBook());
 			} else if (num == 1) {
 				System.out.println("--------보유중인 책 목록--------");
 				a.showInfo();
@@ -36,17 +36,12 @@ public class Manage {
 					a.printPriceUp();
 				}
 			} else if (num == 2) {
-				System.out.println("분야를 입력해 주십시오");
+				System.out.println("찾고자 하는 분야?");
 				a.searchGenre(scan.nextLine());
 			} else if (num == 3) {
-				System.out.println("수정할 책의 번호는 무엇입니까?");
-				a.showInfoWithNum();
-				int bookNum = scan.nextInt();
-				scan.nextLine(); //nextInt 다음에 공백 제거
-				System.out.println("수정할 부분은 어디입니까?");
-				System.out.println("책제목  / 저자  / 출판사  / 분야  / 가격");
-				String section = scan.next();
-				a.changeInfo(bookNum, section);
+				a.changeInfo();
+			} else if (num == 4) {
+				a.expand(Book.makeBook());
 			}
 		}
 	}

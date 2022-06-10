@@ -61,7 +61,7 @@ class Book {
 	}
 	
 	public String toString() { //Book을 출력문에 넣으면 이렇게 나옴
-		return String.format("%-15s / %-5s / %-5s / %-5s / %,d원",title,author,publisher,genre,price);
+		return String.format("%s\t%s\t%s\t%s\t%,d원", title, author, publisher, genre, price);
 //		return (title + " / " + author + " / " + publisher + " / " + genre + " / " + price + "원");
 	}
 	

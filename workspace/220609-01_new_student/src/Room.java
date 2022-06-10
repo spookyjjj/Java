@@ -1,17 +1,32 @@
-
+//배열을 이용해서 한 반에 3명이 아니라 더 많은 학생들!
+import java.util.Scanner;
 public class Room {
+//	private Student[] students;
 	private Student s1;
 	private Student s2;
 	private Student s3;
 	
-	public Room(Student s1, Student s2, Student s3) {
+	public Room() {} //기본생성자 만들어 두고, set으로 끼워넣기
+	
+	public Room(Student s1, Student s2, Student s) {
 		this.s1 = s1;
 		this.s2 = s2;
-		this.s3 = s3;
+		this.s3 = s2;
 	}
-
-	public Room() { //기본생성자 만들어 두고, set으로 끼워넣기
-	}
+	
+//	public Room(Student... students) {
+//		this.students = students;
+//	}
+//
+//	public Student selectStudent() {
+//		Scanner scan = new Scanner(System.in);
+//		int num = scan.nextInt();
+//		return students[num];
+//	}
+	
+//	public void setting() {
+//		selectStudent()
+//	}
 	
 	public void setS1(Student s1) { //반 구성원 변경을 위해서 setter설정
 		this.s1 = s1;

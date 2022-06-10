@@ -27,14 +27,14 @@ public class Library {
 		books[4] = b5;
 	}
 	
-	//책장 한 칸 늘리고 거기에 새책 하나 넣는 메소드
+	//책장 한 칸 늘리고 거기에 새책 하나 넣는 메소드-----------------------------------
 	public Book[] expand(Book b) { //넣을 새 책
 		setBooks(Arrays.copyOf(books, books.length + 1)); //책장 확장
 		books[books.length - 1] = b; //새 책 넣기
 		return books;
 	}
 	
-	//현재 보유중인 책들의 제목을 출력하는 메소드
+	//현재 보유중인 책들의 제목을 출력하는 메소드------------------------------------
 	public void showInfoWithNum() {
 		for (int i = 0; i < books.length; i++) {
 			System.out.println((i + 1) + ". " + books[i]);
@@ -46,28 +46,44 @@ public class Library {
 		}
 	}
 	
-	//정보를 변경하는 메소드
-	public void changeInfo(int bookNum, String section) {
+	//정보를 변경하는 메소드--------------------------------------------------
+	public void changeInfo() {
 		Scanner scan = new Scanner(System.in);
-		System.out.println("수정할 내용을 입력해 주세요");
-		if (section.equals("책제목")) {
-			books[bookNum - 1].setTitle(scan.nextLine());
-		} else if (section.equals("저자")) {
-			books[bookNum - 1].setAuthor(scan.nextLine());
-		} else if (section.equals("출판사")) {
-			books[bookNum - 1].setPublisher(scan.nextLine());
-		} else if (section.equals("분야")) {
-			books[bookNum - 1].setGenre(scan.nextLine());
-		} else if (section.equals("가격")) {
-			books[bookNum - 1].setPrice(scan.nextInt());
-			scan.nextLine();// nextInt 다음의 공백 없애기
+		System.out.println("수정할 책의 번호는 무엇입니까?");
+		showInfoWithNum();
+		int bookNum = scan.nextInt();
+		scan.nextLine(); //nextInt 다음에 공백 제거
+		if (bookNum >= 1 && bookNum <= books.length) {
+			System.out.println("수정할 부분은 어디입니까?");
+			System.out.println("책제목  / 저자  / 출판사  / 분야  / 가격");
+			String section = scan.next();
+			scan.nextLine(); //scan.next() 다음에 공백 제거
+			System.out.println("수정할 내용을 입력해 주세요");
+			if (section.equals("책제목")) {
+				books[bookNum - 1].setTitle(scan.nextLine());
+				System.out.println("수정완료");
+			} else if (section.equals("저자")) {
+				books[bookNum - 1].setAuthor(scan.nextLine());
+				System.out.println("수정완료");
+			} else if (section.equals("출판사")) {
+				books[bookNum - 1].setPublisher(scan.nextLine());
+				System.out.println("수정완료");
+			} else if (section.equals("분야")) {
+				books[bookNum - 1].setGenre(scan.nextLine());
+				System.out.println("수정완료");
+			} else if (section.equals("가격")) {
+				books[bookNum - 1].setPrice(scan.nextInt());
+				scan.nextLine();// nextInt 다음의 공백 없애기
+				System.out.println("수정완료");
+			} else {
+				System.out.println("잘못된 입력입니다"); //여기 손봐야한다~~~~~~
+			}
 		} else {
-			System.out.println("잘못된 입력입니다"); //여기 손봐야한다~~~~~~
+			System.out.println("없는 번호를 입력하셨습니다");
 		}
-		
 	}
 	
-	//장르별 검색
+	//장르별 검색---------------------------------------------------
 	public void searchGenre(String s) {
 		int count = 0;
 		for (Book b : books) {
@@ -81,7 +97,7 @@ public class Library {
 		}
 	}
 	
-	//가격비교
+	//가격비교------------------------------------------------------
 	//Book a Book b가져와서 두개의 가격만 뽑아낸다음 max인 Book만 리턴
 	private Book max(Book a, Book b) {
 		Book max;
@@ -93,7 +109,7 @@ public class Library {
 		return max;
 	}
 	//max의 인덱스 알아내기
-	public int findMaxIndex(Book[] books, Book max) {
+	private int findMaxIndex(Book[] books, Book max) {
 		for (int i = 0;  i < books.length; i++) {
 			if (max.getTitle().equals(books[i].getTitle())) { //같은 가격찾으면 같은가격의 다른책때매 오류나나깐 걍 이름으로 훑음
 				return i;
@@ -168,4 +184,24 @@ public class Library {
 			System.out.println(re[i]);
 		}
 	}
+	//-----------학우가 쓴 방법 : 버블sort(★정렬 알고리즘)-------------
+//	public Book[] getDownSeq() {
+//		Book temp = new Book();
+//		for (int i = 0; i < books.length - 1; i++) {
+//			for (int j = i + 1; j < books.length; j++) {
+//				if (books[i].getPrice() < books[j].getPrice()) {
+//					temp = books[i];
+//					books[i] = books[j];
+//					books[j] = temp;
+//				} else if (books[i].getPrice() == books[j].getPrice()) {
+//					if (books[i].getTitle().length() < books[j].getTitle().length()) {
+//						temp = books[i];
+//						books[i] = books[j];
+//						books[j] = temp;
+//					}
+//				}
+//			}
+//		}
+//		return books;
+//	}
 }

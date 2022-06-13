@@ -12,55 +12,44 @@ class Can {
 	}
 }
 
+class VendingMachine {
+	public static final int COLA = 1;
+	public static final int SPRITE = 2;
+	public static final int FANTA = 3;
+	
+	public Can makeCan(int choice) {
+		if (choice == COLA) {
+			return new Can("콜라");
+		} else if (choice == SPRITE) {
+			return new Can("사이다");
+		} else if (choice == FANTA){
+			return new Can("환타");
+		} else {
+			return new Can("솔의눈");
+		}
+	}
+	
+	public Can makeCan(String choice) {
+		if (choice.equals("cola")) {
+			return new Can("콜라");
+		} else if (choice.equals("cider")) {
+			return new Can("사이다");
+		} else if (choice.equals("fanta")) {
+			return new Can("환타");
+		} else {
+			return new Can("솔의눈");
+		}
+	}
+}
+
 
 public class Main2 {
-	public final int COLA = 1;
-	public final int SPRITE = 2;
-	public final int FANTA = 3;
-	
-	//자판기 메소드
-	//정수형 1 -> 반환타입 Can 
-	// 1 -> field "콜라"
-	//..
-	//문자열 COLA -> 반환타입 Can
-	// "cola" -> field "콜라"
-	//..
-	
-	public static Can bending(int a) {
-		String name;
-		if (a == 1) {
-			name = "콜라";
-		} else if (a == 2) {
-			name = "사이다";
-		} else if (a == 3) {
-			name = "환타";
-		} else {
-			name = "솔의눈";
-		}
-		return new Can(name);
-	}
-	
-	public static Can bending(String a) {
-		String name;
-		if (a.equals("cola")) {
-			name = "콜라";
-		} else if (a.equals("cider")) {
-			name = "사이다";
-		} else if (a.equals("fanta")) {
-			name = "환타";
-		} else {
-			name = "솔의눈";
-		}
-		return new Can(name);
-	}
-	
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-//		System.out.println(bending(sc.nextInt()));
-//		System.out.println(bending(sc.nextLine()));
+		VendingMachine m = new VendingMachine();
+		System.out.println(m.makeCan(1));
+		System.out.println(m.makeCan("cider"));
 		
-//		System.out.println(bending(1));
-//		System.out.println(bending("cola"));
+		//스캐너로 받아내는 방법?!
 	}
-
 }

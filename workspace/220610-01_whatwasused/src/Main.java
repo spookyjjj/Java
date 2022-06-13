@@ -17,7 +17,7 @@ public class Main {
 	public static void main(String[] args) {
 		int[] arr = {50, 30, 20, 60, 10};
 		
-//		Arrays.sort(arr); //Arrays의 정렬 메소드
+//		Arrays.sort(arr); //Arrays의 정렬 메소드 -> 정렬 기준이 없는  배열에 sort를 쓰면 컴파일은 되지만, 실행오류!
 //		System.out.println(Arrays.toString(arr));
 		
 		insertionSort(arr); //디버그 이용해서 어떤과정인지 확인해보기

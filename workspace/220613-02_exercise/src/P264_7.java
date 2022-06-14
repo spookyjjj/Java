@@ -2,7 +2,7 @@ import java.util.Scanner;
 
 class Student {
 	private String name;
-	private int id;
+	private int id; //★int값이 0으로 시작하면, 컴퓨터는 8진수로 인식해버린다. 따라서 첫글자가 0으로 시작할 경우에는 String으로 받는게 낫다~
 	private String major;
 	private int grade;
 	private int point;
@@ -105,7 +105,5 @@ public class P264_7 {
 		s2.setScholarshipRatio(s2.inputscholarshipRatio());
 		System.out.println(s1);
 		System.out.println(s2);
-
 	}
-
 }

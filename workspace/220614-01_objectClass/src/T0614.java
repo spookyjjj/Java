@@ -10,20 +10,27 @@ import java.util.Scanner;
 //고도 :35이상 중도비만: 30이상 35미만 경도비만:25이상 30미만 과체중: 23이상 25미만 정상: 18.5이상 23미만 저체중:18.5미만
 
 class Member {
-	private final int NUM = 220600;
-	private int num; //회원번호
+	private static int standard = 220600;
+	//★★-> 만약 static이 없었다면, 인트턴스마다 각각의 standard 가질 뿐.. 결국 220601짜리만 여러개 쌓인다
+	private int memberID; //회원번호
 	private String name;
 	private double weight;
 	private double height;
 	
 	
 	public Member() {
-		NUM++;
-		num = NUM; //6월에 등록한 순서대로 회원번호 
+		memberID = ++standard; //6월에 등록한 순서대로 회원번호 
+		//★standard++로 하면 0부터 시작한다?
+		//뒤에 ++이면 연산(대입연산포함) 다 끝난 후에 1증가시키는거임! 앞에 ++이면 1증가시켜 놓고 연산진행하는거고
+		/*
+		int num = 7;
+		int result1 = (++num) - 5; // result1는 3, num은 8
+		int result2 = (num++) - 5; // result2는 2, num은 8
+		 */
 	}
 	
-	public int getNum() {
-		return num;
+	public int getMemberID() {
+		return memberID;
 	}
 	
 	public String getName() {
@@ -38,8 +45,8 @@ class Member {
 		return weight;
 	}
 	
-	public void setNum(int num) {
-		this.num = num;
+	public void setMemberID(int memberID) {
+		this.memberID = memberID;
 	}
 
 	public void setName(String name) {
@@ -75,7 +82,7 @@ class Member {
 
 	@Override //회원의 개인정보 보기
 	public String toString() {
-		return String.format("[%d] %s\t%.1fkg\t%.1fcm\n", num, name, weight, height); //prtinf 안 거쳐도 string에서 바로 format 쓸 수 있다!
+		return String.format("[%d] %s\t%.1fkg\t%.1fcm\n", memberID, name, weight, height); //prtinf 안 거쳐도 string에서 바로 format 쓸 수 있다!
 	}
 	
 }
@@ -126,6 +133,9 @@ class Manager {
 // 			}
 // 			System.out.print(m[i].toString());
 // 		}
+		if (blank() == 0) {
+			System.out.println("등록된 회원이 없습니다");
+		}
 		for(int i = 0; i < blank(); i++) {
 			System.out.print(m[i].toString());
 		}
@@ -166,27 +176,26 @@ class Manager {
 		System.out.println("===저체중===");
 		System.out.println(printBMI[5]);
 	}
-	//삭제할 회원번호 입력받기 있음/없음->메뉴로 빠져나가기
-	//선택한 회원 정보 확인하고 의사묻기 맞음/취소->메뉴로 빠져나가기
-	//맞으면 해당 인덱스의 참조를 한칸씩 땡겨오고 마지막엔 null
+
 	private int findMemberByNum() { //회원번호로 멤버찾기
 		Scanner scan = new Scanner(System.in);
 		int num  = scan.nextInt();
-		for (i = 0; i < blank(); i++) {
-			if (num == m[i].getNum()) {
+		for (int i = 0; i < blank(); i++) {
+			if (num == m[i].getMemberID()) {
 				return i;
 			}
 		}
 		return -1; //indexOf에서 찾는 값 없으면 -1주듯이
 	}
-	private void delMember(int a) {
+	
+	private void delMember(int a) { //전달받은 인덱스 번호에 해당되는 애 삭제 후 땡기기
 		while (a != 9) {
-			m[a] = m[a+1]
+			m[a] = m[a+1];
 			a++;
 		}
 		m[9] = null;
 	}
-	private String delMemberProgram() {
+	private String delMemberProgram() { //위에꺼 결합한 삭제프로그램 //return값 줘서 break역할하게...
 		Scanner scan = new Scanner(System.in);
 		System.out.print("정보를 삭제할 회원의 회원번호? ");
 		int a = findMemberByNum();
@@ -197,10 +206,10 @@ class Manager {
 			System.out.println("해당 회원이 맞습니까? 삭제를 진행하려면 1, 취소하려면 아무키나 누르세요");
 			int button  = scan.nextInt();
 			if (button == 1) {
-				delMember(int a);
+				delMember(a);
 				return "회원정보가 삭제되었습니다";
 			} else {
-				return "취소되었습니다":
+				return "취소되었습니다";
 			}
 		}
 	}
@@ -225,7 +234,7 @@ class Manager {
 			} else if (num ==3) {
 				printBMIList();
 			} else if (num ==4) {
-				delMemberProgram();
+				System.out.println(delMemberProgram()); //String으로 리턴되니깐 출력해줘야함
 			} else if (num ==5) {
 				break;
 			} else {

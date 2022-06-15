@@ -1,4 +1,5 @@
 import java.util.Arrays;
+import java.util.Comparator;
 import java.util.Scanner;
 
 //회원관리 프로그램
@@ -10,22 +11,18 @@ import java.util.Scanner;
 //BMI지수 = 몸무게(Kg) / 키^2(m)
 //고도 :35이상 중도비만: 30이상 35미만 경도비만:25이상 30미만 과체중: 23이상 25미만 정상: 18.5이상 23미만 저체중:18.5미만
 
-//키 순(오름차순)으로 멤버 조회하기-> comparable쓰면 됨
 
-class Member implements Comparable {
+//키 순(오름차순)으로 멤버 조회하기-> comparable쓰면 됨
+//몸무게순(오름차순)으로 멤버 조회하기 -> ★기준이 두개가 되면 comparator를 사용해야함
+//https://st-lab.tistory.com/243 참고자료
+
+class Member {
 	private static int standard = 220600;
 	//★★-> 만약 static이 없었다면, 인트턴스마다 각각의 standard 가질 뿐.. 결국 220601짜리만 여러개 쌓인다
 	private int memberID; //회원번호
 	private String name;
 	private double weight;
 	private double height;
-	
-	//++Member끼리 비교를 하면 키 키준으로 하겠다~
-	@Override
-	public int compareTo(Object o) {
-		Member other = (Member) o;
-		return (int) (this.height - other.height);
-	}
 
 	public Member() {
 		memberID = ++standard; //6월에 등록한 순서대로 회원번호 
@@ -95,17 +92,38 @@ class Member implements Comparable {
 	}
 	
 }
-
+	
 class Manager {
 	private Member[] m = new Member[10];
 	private double[] m_BMI = new double[10];
-	
-	//++키를 기준으로 오름차순 정렬하여 출력하는 메소드
+
+	//★키를 기준으로 비교하기 위한 익명의 객체
+	public static Comparator<Member> heightCompare = new Comparator<Member>() {
+		@Override
+		public int compare(Member o1, Member o2) {
+			return (int) (o1.getHeight() - o2.getHeight());
+		}
+	};
 	private void arrHeight() {		
 		Member[] m_arrH = Arrays.copyOf(m, blank());
-		Arrays.sort(m_arrH);
+		Arrays.sort(m_arrH, heightCompare); //★배열과, Comparator로 구현된 객체를 파라미터로 같이 넘겨줌
 		for (int i = 0; i < m_arrH.length; i++) {
 			System.out.println(m_arrH[i]);
+		}
+	}
+	
+	//★몸무게를 기준으로 비교하기 위한 익명의 객체
+	public static Comparator<Member> weightCompare = new Comparator<Member>() {
+		@Override
+		public int compare(Member o1, Member o2) {
+			return (int) (o1.getWeight() - o2.getWeight());
+		}
+	};
+	private void arrWeight() {		
+		Member[] m_arrW = Arrays.copyOf(m, blank());
+		Arrays.sort(m_arrW, weightCompare); //★배열과, Comparator로 구현된 객체를 파라미터로 같이 넘겨줌
+		for (int i = 0; i < m_arrW.length; i++) {
+			System.out.println(m_arrW[i]);
 		}
 	}
 	
@@ -166,19 +184,19 @@ class Manager {
 		}
 		for (int i = 0 ; i < 10; i++) {
 			if (m_BMI[i] >= 35) {
-				printBMI[0] += m[i].toString();
+				printBMI[0] += m[i].toString() + "\n";
 			} else if (m_BMI[i] >= 30) {
-				printBMI[1] += m[i].toString();
+				printBMI[1] += m[i].toString() + "\n";
 			} else if (m_BMI[i] >= 25) {
-				printBMI[2] += m[i].toString();
+				printBMI[2] += m[i].toString() + "\n";
 			} else if (m_BMI[i] >= 23) {
-				printBMI[3] += m[i].toString();
+				printBMI[3] += m[i].toString() + "\n";
 			} else if (m_BMI[i] >= 18.5) {
-				printBMI[4] += m[i].toString();
+				printBMI[4] += m[i].toString() + "\n";
 			} else if (m_BMI[i] > 0) { 
 			//★else라고 하거나, else if (m_BMI[i] >= 0)라고 하면 m_BMI[i]가 0일때! 즉, m[i]가 null일때도 if중괄호 안으로 들어가게됨!!
 			//★null은 toString이 안되니까 NullPointerException에러가 뜸 -> m_BMI[i]가 0일때는 toString안걸리게 제외 해줘야함
-				printBMI[5] += m[i].toString();
+				printBMI[5] += m[i].toString() + "\n";
 			}
 		}
 		System.out.println("===고도비만===");
@@ -239,6 +257,7 @@ class Manager {
 		System.out.println("3. BMI별 회원목록");
 		System.out.println("4. 회원삭제");
 		System.out.println("5. 키 오름차순 정렬");
+		System.out.println("6. 몸무게 오름차순 정렬");
 		System.out.println("0. 종료");
 	}
 	public void programStart() {
@@ -250,13 +269,15 @@ class Manager {
 				inputMember();
 			} else if (num == 2) {
 				printMember();
-			} else if (num ==3) {
+			} else if (num == 3) {
 				printBMIList();
-			} else if (num ==4) {
+			} else if (num == 4) {
 				System.out.println(delMemberProgram()); //String으로 리턴되니깐 출력해줘야함
-			} else if (num ==5) {
+			} else if (num == 5) {
 				arrHeight();
-			} else if (num ==0) {
+			} else if (num == 6) {
+				arrWeight();
+			} else if (num == 0) {
 				break;
 			} else {
 				System.out.println("없는 메뉴입니다");
@@ -265,12 +286,11 @@ class Manager {
 	}
 	
 }
-public class T0614 {
+public class T0615 {
 
 	public static void main(String[] args) {
 		Manager m = new Manager();
 		m.programStart();
-
 	}
 
 }

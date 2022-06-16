@@ -24,6 +24,13 @@ class Member {
 	private double weight;
 	private double height;
 
+	public Member(int memberID, String name, double weight, double height) {
+		this.memberID = memberID;
+		this.name = name;
+		this.weight = weight;
+		this.height = height;
+	}
+
 	public Member() {
 		memberID = ++standard; //6월에 등록한 순서대로 회원번호 
 		//★standard++로 하면 0부터 시작한다?
@@ -92,18 +99,28 @@ class Member {
 	}
 	
 }
-	
+
+//★키를 기준으로 비교하기 위해 외부에 별개의 클래스 생성 -> 
+class HeightComp implements Comparator<Member> {
+	@Override
+	public int compare(Member o1, Member o2) {
+		return (int) (o1.getHeight() - o2.getHeight());
+	}
+}
+
+//class HeightComp2 extends Member implements Comparable<Member> {
+//	@Override
+//	public int compareTo(Member o1) {
+//		return (int) (this.getHeight()- o1.getHeight()); 
+//	}
+//}
+
 class Manager {
 	private Member[] m = new Member[10];
 	private double[] m_BMI = new double[10];
 
-	//★키를 기준으로 비교하기 위한 익명의 객체
-	public static Comparator<Member> heightCompare = new Comparator<Member>() {
-		@Override
-		public int compare(Member o1, Member o2) {
-			return (int) (o1.getHeight() - o2.getHeight());
-		}
-	};
+	HeightComp heightCompare = new HeightComp(); //★키 기준 비교를 위해 외부에 클래스를 따로 만들었다면, 다른 클래스에서 실행을 위해선 객체생성 필요
+//	++ Comparable<Member> heightCompare = new HeightComp() 로 upcasting하는게 가능하나는점 -> 이게 확장되어서 로컬클래스가 등장!
 	private void arrHeight() {		
 		Member[] m_arrH = Arrays.copyOf(m, blank());
 		Arrays.sort(m_arrH, heightCompare); //★배열과, Comparator로 구현된 객체를 파라미터로 같이 넘겨줌
@@ -111,9 +128,27 @@ class Manager {
 			System.out.println(m_arrH[i]);
 		}
 	}
+//	private void arrHeight() {		
+//		HeightComp2 heightCompare = new HeightComp2(); 
+//		Member[] a = Arrays.copyOf(m, blank());
+//		HeightComp2[] m_arrH = (HeightComp2[]) a; //downcast라서 안된다!! 결국은 comparator로 접근할 수 밖에,,,
+//		Arrays.sort(m_arrH); 
+//		for (int i = 0; i < m_arrH.length; i++) {
+//			System.out.println(m_arrH[i]);
+//		}
+//	}
+	
+//	//키를 기준으로 비교하기 위한 익명의 1회용 객체 -> 로컬클래스
+//	Comparator<Member> heightCompare = new Comparator<Member>() { //class이름조차 없으니 upcasting할것도 없이 바로 인터페이스로 생성
+//		@Override
+//		public int compare(Member o1, Member o2) {
+//			return (int) (o1.getHeight() - o2.getHeight());
+//		}
+//	};
+	
 	
 	//★몸무게를 기준으로 비교하기 위한 익명의 객체
-	public static Comparator<Member> weightCompare = new Comparator<Member>() {
+	Comparator<Member> weightCompare = new Comparator<Member>() {
 		@Override
 		public int compare(Member o1, Member o2) {
 			return (int) (o1.getWeight() - o2.getWeight());
@@ -291,6 +326,10 @@ public class T0615 {
 	public static void main(String[] args) {
 		Manager m = new Manager();
 		m.programStart();
+//		Member m = new Member(1, "김김김", 40 , 160);
+//		Member m2 = new Member(2, "박박박", 50 , 170);
+//		HeightComp2 a = new HeightComp2();
+//		a = (HeightComp2) m; //downcating이라서 안된다~! 
 	}
 
 }

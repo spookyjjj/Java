@@ -20,6 +20,6 @@ public final class MyImpleClass extends MySubClass { //★종단선언 final
 		MySubClass sub = (MySubClass) m; //다운캐스딩
 		sub.myMethod2();
 	}
-	//즉, 지금의 형에서 정의된 메소드만 실행되지만
-	//그 메소드가 오버라이드 되었다면 instanceof의 형 쫒아가서 실행
+	//즉, 지금의 형type에서 정의된 메소드만 실행되지만
+	//그 메소드가 오버라이드 되었다면 instanceof의 형type 쫒아가서 실행
 }

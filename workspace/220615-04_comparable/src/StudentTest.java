@@ -1,7 +1,5 @@
 import java.util.Arrays;
-//공부하기 싫다,,,,,,,,,,
-//힝,,,,,
-//난 진짜 쪼끔밖에 안썼는디,,,,,
+
 class Student implements Comparable {
 	private String name;
 	private double gpa;

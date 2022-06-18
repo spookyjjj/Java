@@ -75,4 +75,7 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
 - [220614](./Java정리/220614.md)  
   - 상향형변환 with상속  
   - 하향형변환 with상속  
-  - Object 클래스 : toSting, equals
+  - Object 클래스 : toSting, equals  
+- [220615](./Java정리/220615.md)  
+- [220616](./Java정리/220616.md)  
+- [220617](./Java정리/220617.md)  

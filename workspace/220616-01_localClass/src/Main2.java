@@ -11,10 +11,10 @@ interface MyInterface { //인터페이스는 항상 public 어디에서든 호�
 		System.out.println("Hello");
 	}
 	
-	public static void myStaticMethod() {}
 	
 	//java9버전 부터는 interface에 private를 붙일 수 있음 지금쓰는 8버전은 private안됨
 	
+	public static void myStaticMethod() {}
 	static int sum(int a, int b) { //static은 해당 클래스 부르기만 해도(객체생성없이) 항상 작동하는 놈! 
 		return a + b;			//★추상메소드가 아니라 걍 정적메소드이기 때문에 인터페이스안에 있어도 상관없다! 
 	}

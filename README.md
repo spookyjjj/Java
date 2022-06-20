@@ -69,13 +69,25 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - 메소드 오버로딩  
 - [220613](./Java정리/220613.md)  
   - 상속
-  - `protected` 접근제한자 with상속
-  - 메소드 오버라이드 with상속
+  - `protected` 접근제한자
+  - 메소드 오버라이드
   - 클래스 다이어그램 : amateras-modeler설치 및 사용
 - [220614](./Java정리/220614.md)  
-  - 상향형변환 with상속  
-  - 하향형변환 with상속  
+  - 상향형변환
+  - 하향형변환
   - Object 클래스 : toSting, equals  
 - [220615](./Java정리/220615.md)  
+  - abstract (추상메소드, 추상클래스) -> extends
+  - 인터페이스 -> implements
+  - 자식에서의 구현 Override
+  - final 종단선언 (종단클래스, 종단메소드)
+  - Comparable(interface) -> compareTo(o)
 - [220616](./Java정리/220616.md)  
+  - Comparator(interface) -> compare(o1, o2)
+  - 로컬클래스
+  - 인터페이스 추가설명
 - [220617](./Java정리/220617.md)  
+  - 예외처리
+  - String클래스의 파생
+- [220620](./Java정리/220620.md)  
+  - 자료구조 List..

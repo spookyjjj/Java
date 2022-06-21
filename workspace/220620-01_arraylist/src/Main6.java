@@ -13,7 +13,7 @@ public class Main6 {
 //		Arrays.sort(list); //이거는 List클래스가 아닌 Array일때나 가능!
 		
 		//Collections는 Collection에서 작동하는 정적 메소드들 이 담겨있다~  
-		//Collection은 List를 포함하는 객체
+		//Collection은 ArrayList를 포함하는 객체
 		Collections.sort(list);
 		System.out.println(list);
 

@@ -5,9 +5,9 @@ public class Main3 {
 
 	public static void main(String[] args) {
 		List<Integer> list = new ArrayList<>(); //제네릭 붙일때 오른쪽꺼는 꺽쇠만 해도됨
-		//upcasting! List는 interface(add() get()같은 애들 존재)이고, ArrayList는 List를 implements!
+		//upcasting! List는 interface(get()같은 애들 존재)이고, ArrayList는 List를 implements!
 		//그래서 List에도 있는 메소드는 List로 형변환해도 사용가능하다~ 아래의 메소드들이 전부 그러함
-		//보통은 interface로 업캐스팅 해서 쓴다! 로지텍마우스라고 안하고 마우스라고 부르듯이
+		//보통은 interface로 업캐스팅 해서 쓴다! 로지텍마우스라고 안하고 마우스라고 부르듯이 덜 복잡하니깐!
 		list.add(77); 
 		System.out.println(list.get(0));
 		

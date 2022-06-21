@@ -5,10 +5,10 @@ import java.util.Arrays;
 public class Main5 {
 
 	public static void main(String[] args) {
-		List<Integer> list = new ArrayList(Arrays.asList(10, 20, 30, 30, 40, 50)); //Arrays 생성자역할 add()안하고 바로 만들기
+		List<Integer> list = new ArrayList(Arrays.asList(10, 20, 30, 30, 40, 50)); //Arrays의 asList써서 배열을 list로~
 		System.out.println(list);
 //		List<Integer> test = Arrays.asList(10, 20, 30, 40, 50); 
-//		test.add(60); //★생성자로 만든 리스트는 변경, 추가가 안됨!!
+//		test.add(60); //★aslist로 만든 리스트는 변경, 추가가 안됨!!
 		
 		list.addAll(Arrays.asList(60, 70, 80)); //addAll은 배열단위로 추가가능!
 		System.out.println(list);

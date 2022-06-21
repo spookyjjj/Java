@@ -21,6 +21,11 @@ public class Main {
 		for (int i = 0; i < list.size(); i++) {
 			System.out.println(list.get(i));
 		}
+		
+		//for-each로도 출력하기 가능~
+		for (Object o : list) {
+			System.out.println(o);
+		}
 	}
 
 }

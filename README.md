@@ -66,11 +66,11 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - 정렬
   - Wrapper class : 기초형->참조형
   - 이중배열
-  - 메소드 오버로딩  
+  - Method Overloading 메소드 오버로딩  
 - [220613](./Java정리/220613.md)  
   - 상속
   - `protected` 접근제한자
-  - 메소드 오버라이드
+  - Method Override 메소드 오버라이드
   - 클래스 다이어그램 : amateras-modeler설치 및 사용
 - [220614](./Java정리/220614.md)  
   - 상향형변환
@@ -91,4 +91,10 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - 예외처리
   - String클래스의 파생
 - [220620](./Java정리/220620.md)  
-  - 자료구조 List..
+  - 자료구조
+  - Collection > List > ArrayList  
+- [220621](./Java정리/220621.md)  
+  - Collection > List, Queue, Deque > LinkedList  
+  - 인터페이스로 묶는 것, 오버라이드로 같은 호출 다른 결과 내보는 것 실습! (★전단지)  
+- [220621](./Java정리/220622.md)  
+  - Collection > Set >HashSet

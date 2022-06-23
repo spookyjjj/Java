@@ -17,16 +17,18 @@ public class Main {
 		
 		System.out.println(set.size()); //2
 		System.out.println(set.toString());
+		
 //		System.out.println(set.get(0)); //★List와는 달리 인덱스가 없기 때문에 get메소드도 없다!!!!!
+		
 //		for (int i = 0; i < set.size(); i++) { //따라서 이것도 안됨~!
 //			set.get(i);
 //		}
 		
-		for (Object o : set) { //★1번 해결책
+		for (Object o : set) { //★전체원소보기 해결책 1번 
 			System.out.println(o);
 		}
 		
-		Iterator<Object> iter = set.iterator(); //★2번 해결책
+		Iterator<Object> iter = set.iterator(); //★전체원소보기 해결책 2번 
 		while (iter.hasNext()) {
 			System.out.println(iter.next());
 		}

@@ -96,5 +96,7 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
 - [220621](./Java정리/220621.md)  
   - Collection > List, Queue, Deque > LinkedList  
   - 인터페이스로 묶는 것, 오버라이드로 같은 호출 다른 결과 내보는 것 실습! (★전단지)  
-- [220621](./Java정리/220622.md)  
+- [220622](./Java정리/220622.md)  
   - Collection > Set >HashSet
+- [220623](./Java정리/220623.md)  
+  - JFrame : Swing기반 클래스

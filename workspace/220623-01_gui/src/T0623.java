@@ -9,6 +9,10 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import java.awt.Component;
+import java.awt.Color;
 class MakeQ {
 	int a;
 	int b;
@@ -45,23 +49,39 @@ public class T0623 extends JFrame {
 		MakeQ makeQ = new MakeQ(); 
 		makeQ.run(); //문제생성
 		
-		JLabel qBox = new JLabel(makeQ.qPrint()); //위에층
-		
 		JTextField a = new JTextField(15); //밑에층-1
+		a.setForeground(Color.DARK_GRAY);
 		JButton button = new JButton("확인"); //밑에층-2
 		
 		JPanel aBox = new JPanel(); //밑에층 (밑에층-1, 밑에층-2) 
 		aBox.add(a);
 		aBox.add(button);
 		
-		JLabel cBox = new JLabel("연속 성공 점수: " + makeQ.getCount());
-		
 		JPanel box = new JPanel(); //전체박스 (qbox, abox, cbox) -> 세로배열
 		BoxLayout yy = new BoxLayout(box, BoxLayout.Y_AXIS);
 		box.setLayout(yy);
-		box.add(qBox);
+		
+		JPanel panel = new JPanel();
+		box.add(panel);
+		
+		JLabel qBox = new JLabel(makeQ.qPrint());
+		panel.add(qBox);
+		qBox.setAlignmentY(Component.TOP_ALIGNMENT);
+		qBox.setHorizontalTextPosition(SwingConstants.CENTER);
+		qBox.setVerifyInputWhenFocusTarget(false);
+		qBox.setHorizontalAlignment(SwingConstants.CENTER);
+		qBox.setFont(new Font("Engravers MT", Font.PLAIN, 30));
 		box.add(aBox);
-		box.add(cBox);
+		
+		
+		getContentPane().add(box);
+		
+		JPanel panel_1 = new JPanel();
+		box.add(panel_1);
+		
+		JLabel cBox = new JLabel("연속 성공 점수: " + makeQ.getCount());
+		cBox.setFont(new Font("궁서체", Font.PLAIN, 20));
+		panel_1.add(cBox);
 		
 		button.addActionListener(new ActionListener() {
 			@Override
@@ -81,9 +101,7 @@ public class T0623 extends JFrame {
 				}
 			}
 		});
-		
-		add(box);
-		setSize(300, 130);
+		setSize(329, 150);
 		setLocationRelativeTo(null); //윈도우 가운데 정렬
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		

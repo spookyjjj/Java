@@ -43,7 +43,7 @@ public class Main6 extends JFrame{
 		
 		add(pnlBox);
 		
-		pack(); //창을 컴포넌트 크기에 맞춰서 나오게 하는 메소드~
+		pack(); //★창을 컴포넌트 크기에 맞춰서 나오게 하는 메소드~
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 		

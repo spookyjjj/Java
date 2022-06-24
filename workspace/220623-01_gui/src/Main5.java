@@ -14,13 +14,13 @@ public class Main5 extends JFrame {
 		
 		//패널에다가 layout먹이기
 //		FlowLayout flow = new FlowLayout(FlowLayout.LEFT); //생성자에다가 정렬기준 적어줌 (FlowLayout.LEFT, RIGHT, CENTER)
-//		pnl.setLayout(flow); //일정 거리를 두고 옆으로 차곡차곡 배열 <- 패널의 기본꼴
+//		pnl.setLayout(flow); //일정 거리를 두고 가로로 차곡차곡 배열 <- 패널의 기본꼴
 		
 //		BorderLayout border = new BorderLayout();
-//		pnl.setLayout(border); //자기의 영역에 컴포넌트를 가득!! 채움 <-JFrame의 기본꼴
+//		pnl.setLayout(border); //자기의 영역(동서남북)에 컴포넌트를 가득!! 채움 <-JFrame의 기본꼴
 		
 //		BoxLayout box = new BoxLayout(pnl, BoxLayout.Y_AXIS); //기본생성자 없음. 파라미터 꼭 넣어야해 (대상, 방향:X_AXIS,Y_AXIS등등)
-//		pnl.setLayout(box); //박스처럼 붙여가지고 차곡차곡 쌓음
+//		pnl.setLayout(box); //박스처럼 붙여가지고 옆으로 혹은 세로로 차곡차곡 쌓음
 		
 //		GridLayout grid = new GridLayout(2, 2); //바둑판처럼 쪼개서 배치 
 //		pnl.setLayout(grid); 
@@ -30,7 +30,7 @@ public class Main5 extends JFrame {
 		btn1.setSize(200, 300);
 		btn2.setBounds(250, 50, 90, 40);
 		
-//		btn1.setSize(300, 300); //안먹는다~ 지네가 쓰는 크기 고집함
+//		btn1.setSize(300, 300); //레이아웃 매니저가 null이 아닌한, size는 하라는대로 안먹힌다~ 지네가 쓰는 크기 고집함
 //		btn1.setPreferredSize(new Dimension(300, 300)); //★제안하기를 이용해야 한다!!! -> 적용해주려고 노력함,,ㅎㅎ
 		//borderlayout에서는 상중하->높이만 먹음... 좌중우->너비만 먹음...
 		

@@ -64,7 +64,7 @@ public class Main4 extends JFrame {
 //				result에 출력하기
 				String s = "";
 				if (rdb1.isSelected()) {
-					s = String.format("%.2f inch", (Integer.valueOf(text.getText()) * 0.4));
+					s = String.format("%.2f inch", (Integer.valueOf(text.getText()) * 0.4)); //소수점 아래 2자리까지만 나오게 String포멧설정
 					result.setText(s);
 				} else if (rdb2.isSelected()) {
 					s = String.format("%.2f cm", (Integer.valueOf(text.getText()) * 2.54));

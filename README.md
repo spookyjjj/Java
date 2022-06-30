@@ -115,7 +115,7 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - MouseListener
   - KeyListener 
   - 이미지파일 연결하기
-- [220628](./Java정리/220628.md) - LOTTO  
+- [220628](./Java정리/220628.md) - [LOTTO](./Java정리/LOTTO.md)  
   - JDialog (modal개념)
   - WindowListener
   - JOptionPane.showConfirmDialog, JOptionPane.showInputDialog

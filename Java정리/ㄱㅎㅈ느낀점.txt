@@ -22,3 +22,17 @@
 
 문제: 당연히 null로 되어있다고 생각하고 실컷 코드를 작성한 후에 테스트해보면 실제로는 0이나 ""로 되어있어 실행오류가 나는 경우가 많았다. 마찬가지로 equals또한 값의 동일이라고 생각하고 생각했지만 사실은 참조의 동일인 경우가 있었다. 이때 정말 오류 찾기 힘들다
 해결: 처음보는 클래스를 사용할 때는 기본값이 무엇인지, equals는 뭘 같다고 인식하는지 체크하고 시작하는게 좋다. 아니면 내가 나만의 기본값, 나만의 equals2를 만들어놓고 쓰는게 좋을듯
+
+=================
+생성자 겟터 셋터
+static이해하기
+interface, interface에 추상메소드가 많으면 adaptor만들어가면서 처리하면 서로간 충돌을 피할 수 있다
+
+addMouseListener(파라미터로 MouseListener(추상클래스)도 받고 MouseAdapter(클래스 : implements MouseListner)도 받을 수 있다)
+
+btn.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent arg0) {
+				super.mouseClicked(arg0);
+			}
+});

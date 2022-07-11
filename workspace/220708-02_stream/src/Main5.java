@@ -42,6 +42,8 @@ public class Main5 {
 //				pw.println(e.getKey() + ": " + e.getValue());
 			}
 			
+//			pw.println("시간이 흐른 뒤,,추가된 내용");
+			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
@@ -54,9 +56,8 @@ public class Main5 {
 		
 		try {
 //			pw = new PrintWriter(new FileWriter(file)); //다른 PrintWriter로(new 생성함) 동일 파일 적용하면, 덮어쓰기가 되어버림~!
-			pw.println("시간이 흐른 뒤,,추가된 내용");
+//			pw.println("시간이 흐른 뒤,,추가된 내용");
 			pw = new PrintWriter(new FileWriter(file, true)); //★★append true면 기존에 있던 file 밑에 추가하겠다~
-			
 			pw.println("시간이 흐른 뒤,,추가된 내용");
 			
 		} catch (FileNotFoundException e) {

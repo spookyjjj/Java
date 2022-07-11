@@ -66,6 +66,7 @@ public class T0708 extends JFrame{
 					File opfile = chooser.getSelectedFile(); //열기를 선택한 그 파일을 특정할 뿐 뭔가 행동을 하는건 아님
 					BufferedReader br = null;
 					try {
+						ta.setText("");
 						br = new BufferedReader(new FileReader(opfile));
 						String line; 
 						while ((line = br.readLine()) != null) { //끝을 만나면 -1이 아니라 null을 반환함
@@ -103,9 +104,10 @@ public class T0708 extends JFrame{
 					//=====================
 					PrintWriter pw = null;
 					try {
-						pw = new PrintWriter(new FileWriter(svfile, true)); //추가되게 하는건 FileWriter에 있다~!!
+//						pw = new PrintWriter(new FileWriter(svfile, true)); //추가되게 하는건 FileWriter에 있다~!!
+						pw = new PrintWriter(new FileWriter(svfile));
 						String text = ta.getText();
-						pw.println(LocalDateTime.now()); 
+//						pw.println(LocalDateTime.now()); 
 						pw.println(text); 
 						pw.flush();
 						ta.setText("");

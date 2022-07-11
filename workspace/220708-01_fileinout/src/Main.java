@@ -1,6 +1,6 @@
 import java.io.File;
 
-public class Main { //왜...\\이거하고 /의 차이는????
+public class Main { // \\이거하고 /의 차이는? window에서는\, mac에서는 /
 	public static void main(String[] args) {
 		File file = new File("d:\\Kimhj\\test.txt"); //윈도우에서는 백슬러시, ""안에선 두번써줘야 인식
 		

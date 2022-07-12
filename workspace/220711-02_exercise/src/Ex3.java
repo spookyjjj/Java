@@ -1,15 +1,14 @@
 import java.io.EOFException;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Scanner;
-import java.util.Set;
 
 //목록보기, 1명보기, 1명수정, 1명삭제
 class Person implements Serializable {
@@ -70,7 +69,6 @@ public class Ex3 {
 
 		List<Person> list = new ArrayList<>(); // 프로그램 종료 전까지 list에 담고 프로그램 켜면 list에 불러오고
 		// 리스트로 다해먹는게 편하다~
-		Set<Integer> numbers = new HashSet<>(); // 번호에 중복없게 하려고
 		ObjectOutputStream oos = null; // write
 		ObjectInputStream ois = null; // read
 		File file = new File("d:\\filetest\\ex3.txt");
@@ -78,7 +76,12 @@ public class Ex3 {
 		try {
 			try {
 				ois = new ObjectInputStream(new FileInputStream(file));
+				while(true) {
 				list.addAll((List) ois.readObject());
+				}
+			} catch(FileNotFoundException e) {
+				file.createNewFile(); //.mkdir()는 폴더를 만듬 .createNewFile()는 파일만듬
+				System.out.println("ex3.txt 생성");
 			} catch (EOFException e) {
 				System.out.println("파일 읽기 완료");
 			}
@@ -94,10 +97,14 @@ public class Ex3 {
 					System.out.println("번호?");
 					int num = scan.nextInt();
 					scan.nextLine();
-					if (numbers.contains(num)) {
-						System.out.println("이미 할당된 번호입니다");
-					} else {
-						numbers.add(num);
+					boolean runOrNot = true;
+					for(Person p : list) {
+						if (p.getNumber() == num) {
+							runOrNot = false;
+							break;
+						}
+					}
+					if (runOrNot) {
 						System.out.println("이름?");
 						String name = scan.nextLine();
 						System.out.println("전화번호?");
@@ -106,6 +113,8 @@ public class Ex3 {
 						String email = scan.nextLine();
 						Person p = new Person(num, name, phone, email);
 						list.add(p);
+					} else {
+						System.out.println("이미 할당된 번호입니다");
 					}
 				}
 				if (push == 2) {

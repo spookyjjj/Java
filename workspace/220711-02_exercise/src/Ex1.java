@@ -22,12 +22,14 @@ public class Ex1 {
 				Integer i = Integer.valueOf(s);
 				list.add(i);
 			}
+			
 			Collections.sort(list);
 			
 			pw = new PrintWriter(new File("d:\\filetest\\ex1_2.txt"));
 			for(Integer i : list) {
 				pw.println(i);
 			}
+			pw.flush();
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -38,7 +40,6 @@ public class Ex1 {
 				if (br != null) {
 					br.close();
 				}
-				
 			} catch (IOException e) {
 				e.printStackTrace();
 			}

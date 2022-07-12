@@ -10,7 +10,7 @@ public class Main5 {
 		try {
 			oos = new ObjectOutputStream(new FileOutputStream(new File("d:\\filetest\\sl.ser")));
 			
-			oos.writeObject(new Student("학생1", 33, 3.0)); //NotSerializableException -> Student클래스를 직렬화 해줘야함
+			oos.writeObject(new Student("학생1", 33, 3.0)); //NotSerializableException -> ★Student클래스를 직렬화 해줘야함
 			oos.flush();
 			
 		} catch (FileNotFoundException e) {

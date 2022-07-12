@@ -85,7 +85,7 @@ public class Main {
 				String name = br.readLine();
 				int age = Integer.valueOf(br.readLine()); //학생객체로 만들기 위해 int로 형변환
 				double score = Double.valueOf(br.readLine()); //학생객체로 만들기 위해 double로 형변환
-				//위의 형변환 과정이 번잡스러우니 걍 그 형 그대로 data로 저장하는 DataOutputStream/DataInputStream사용
+				//->위의 형변환 과정이 번잡스러우니 걍 그 형 그대로 data로 저장하는 DataOutputStream/DataInputStream사용
 			
 				Student s = new Student(name, age, score);
 				list.add(s);

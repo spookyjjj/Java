@@ -7,7 +7,7 @@ import java.util.List;
 
 import kr.co.greenart.dbutil.DBUtil;
 
-public class RtrDB {
+public class RtrDB { //DAO : Date Access Object -> 데이터를 읽고쓰고접근할 수있는 객체
 	public int add(Restaurant r) throws SQLException{
 		String query = "insert into restaurant (id, name, tel, address) values ('" + r.getId() + "', '" + r.getName() + "', '" + r.getTel() + "', '" + r.getAddress() + "')";
 

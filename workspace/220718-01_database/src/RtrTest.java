@@ -24,13 +24,13 @@ public class RtrTest {
 		RtrDB a = new RtrDB();
 		try {
 			//list test
-//			List<Restaurant> list = a.list();
-//			for (Restaurant r : list) {
-//				System.out.println(r);
-//			}
+			List<Restaurant> list = a.list();
+			for (Restaurant r : list) {
+				System.out.println(r);
+			}
 			
 			//add(name, tel, address) test
-			System.out.println(a.add("새음식점", "또새전번", "또새주소") == 1);
+//			System.out.println(a.add("새음식점", "또새전번", "또새주소") == 1);
 			
 			//add(Restaurant) test
 //			Restaurant r = new Restaurant(100, "여기가자", "전번은?", "주소는?");
@@ -44,6 +44,13 @@ public class RtrTest {
 //			System.out.println(a.delete(101) == 1);
 //			System.out.println(a.delete(102) == 1);
 //			System.out.println(a.delete(103) == 1);
+			
+			//searchById(id) test
+//			System.out.println(a.searchById(3));
+			
+			//updateById(Restaurant) test
+//			Restaurant r = new Restaurant(105, "수정중", "수정중", "수정중"); //105번을 고치는거임~
+//			System.out.println(a.updateById(r) == 1);
 		} catch(SQLException e) {
 			System.out.println("에러발생");
 			System.out.println(e.getMessage());

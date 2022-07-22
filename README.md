@@ -124,12 +124,16 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - pull add commit push
 - [220708](./Java정리/220708.md)  
   - File
-  - Stream
+  - 바이트 단위로 읽고 쓰기 : FileInputStream, FileOutputStream
+  - 문자 단위로 읽고 쓰기 : FileReader, FileWriter
+  - 줄 단위로 읽고 쓰기 : BufferedReader, PrintWriter  
   - JFileChooser, fileFilter
 - [220711](./Java정리/220711.md)  
-  - 문자열 단위로 읽고쓰기 : PrintWriter, BufferedReader
-  - 자료형 단위로 읽고쓰기 : DataOutputStream, DataInputStream
-  - Object 단위로 읽고쓰기 : ObjectOutputStream, ObjectInputStream
+  - 줄 단위(txt) : BufferedReader, PrintWriter
+  - 자료형 단위(dat) : DataInputStream, DataOutputStream 
+  - Object 단위(ser) : ObjectInputStream, ObjectOutputStream 
+- [220714](./Java정리/220714.md) 
+  - jar파일(라이브러리) 생성/적용 -> mySQL Dreiver가 jar파일임
 - [220715](./Java정리/220715.md) 
   - java와 db의 연결
   - 드라이버적재 -> db연결 -> 명령어보내기
@@ -140,5 +144,5 @@ md파일을 통해 실습하였던 java파일로 접근할 수 있다.
   - batch
 - [220720](./Java정리/220720.md) 
   - transaction(sql기능)
-  - file을 db로 보내고 받기
-  - autocloseable(interface)
+  - file을 db로 보내고 받기(By Blob)
+  - autocloseable(try-with-resources)

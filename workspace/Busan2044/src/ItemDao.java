@@ -8,9 +8,8 @@ import java.util.List;
 import java.util.Random;
 
 import kr.co.green.BusanUtil;
-
+//다오에서는 DB와 교류하는 매우 기본적인것만 넣어주세요 delete나 update, select, getter setter같은것들,,
 public class ItemDao {
-	//상점에 상점캐가 올릴 아이템들 -> 5개 (3개 회복/1개 무기/1개 이벤트) 
 	//item_code를 지정해주면 확률게임 진행 후 item_id 하나를 뱉음
 	public int trade_npcItem(Connection conn, String item_code) throws SQLException {
 		String query = "select * from item_table where item_code = ? and item_nodeal = 0;"; 
@@ -36,18 +35,18 @@ public class ItemDao {
 				case 5 : rare5.add(rs.getInt("item_id")); break;
 				}
 			}
-			//100퍼 중에서, 1:50퍼, 2:30퍼, 3:10퍼, 4:7퍼, 5:3퍼
+			//100퍼 중에서, 1:40퍼, 2:25퍼, 3:17퍼, 4:10퍼, 5:8퍼
 			Random ran = new Random();
 			int random = ran.nextInt(100) + 1;
 			int item_id = 0;
-			if (random <= 50) {
+			if (random <= 40) {
 				//rare1에서 랜덤뽑기
 				item_id = rare1.get(ran.nextInt(rare1.size()));
-			} else if (random <= 80) {
+			} else if (random <= 65) {
 				item_id = rare2.get(ran.nextInt(rare2.size()));
-			} else if (random <= 90) {
+			} else if (random <= 82) {
 				item_id = rare3.get(ran.nextInt(rare3.size()));
-			} else if (random <= 97) {
+			} else if (random <= 92) {
 				item_id = rare4.get(ran.nextInt(rare4.size()));
 			} else {
 				item_id = rare5.get(ran.nextInt(rare5.size()));
@@ -60,9 +59,8 @@ public class ItemDao {
 	}
 	
 	//아이템 획득시 진행될 로직 (1회용)
-	//item_id에 따라서 durability, count를 개별로 관리할 수 있게 정보 처리 -> 저장필요한 정보 inventory: list<Item>
-	//추가할 사항 -> 무기류 중복일 때, 이벤트류 중복일 때, 소비류 중복일 때
-		public Item inputInventory(Connection conn, int item_id) throws SQLException {
+	//item_id에 맞게 durability, count가져오기
+		public Item setItemInfo(Connection conn, int item_id) throws SQLException {
 			String query = "select * from item_table where item_id = ?"; 
 			PreparedStatement pstmt = null;
 			ResultSet rs = null;
@@ -82,10 +80,7 @@ public class ItemDao {
 				BusanUtil.closeStmt(pstmt);
 			}
 		}
-	
-	//내가 거래를 위해 올릴 아이템
-	
-	//희귀도 비교
+
 	
 	//id로 item정보 다 뜯어오기
 	public String getItemCode(Connection conn, int item_id) throws SQLException {
@@ -237,29 +232,29 @@ public class ItemDao {
 	
 	
 	
-	public static void main(String[] args) {
-		ItemDao mm = new ItemDao();
-		Character user1 = new Character();
-		List<Integer>storeInven = new ArrayList<>();
-		Connection conn = null;
-		try {
-			conn = BusanUtil.getConnection();
+//	public static void main(String[] args) {
+//		ItemDao mm = new ItemDao();
+//		Character user1 = new Character();
+//		List<Integer>storeInven = new ArrayList<>();
+//		Connection conn = null;
+//		try {
+//			conn = BusanUtil.getConnection();
 //			mm.trade_npcItem(conn, "rcv");
 //			mm.trade_npcItem(conn, "rcv");
 //			mm.trade_npcItem(conn, "rcv");
 //			mm.trade_npcItem(conn, "wpn");
 //			mm.trade_npcItem(conn, "evt");
-			
+//			
 //			user1.getInventory().add(mm.inputInventory(conn, 3));
 //			user1.getInventory().add(mm.inputInventory(conn, 21));
 //			System.out.println(user1.getInventory().toString());
-			
-		} catch (Exception e) {
-			System.out.println("에러");
-		} finally {
-			BusanUtil.closeConn(conn);
-		}
-		
-				
-	}
+//			
+//		} catch (Exception e) {
+//			System.out.println("에러");
+//		} finally {
+//			BusanUtil.closeConn(conn);
+//		}
+//		
+//				
+//	}
 }

@@ -10,3 +10,4 @@
 ### 참조
 - https://www.delftstack.com/ko/howto/java/countdown-timer-java/
 - https://ateraimemo.com/Swing.html
+- https://truehong.tistory.com/19 (객체폐기)

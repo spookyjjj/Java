@@ -127,22 +127,29 @@ public class StoryPnl extends JFrame {
 				itemconsole.getItem(8); // 살골
 				user.getParty().add(4);
 				npcImg(lblNpcImg);
-				itemconsole.lblImg(userInven, user.getInventory());
-				itemconsole.lblCount(userInven, userInvenCount);
+				for (int i = 0; i < lblNpcImg.size(); i++) {
+					npcImgHover(lblNpcImg.get(i));
+				}
+				userInven();
 				break;
 			}
 			case 1: { // 전판례
 				itemconsole.getItem(7); // 법전
 				user.getParty().add(5);
 				npcImg(lblNpcImg);
-				itemconsole.lblImg(userInven, user.getInventory());
-				itemconsole.lblCount(userInven, userInvenCount);
+				for (int i = 0; i < lblNpcImg.size(); i++) {
+					npcImgHover(lblNpcImg.get(i));
+				}
+				userInven();
 				break;
 			}
 			case 2: { // 도독놈
 //				itemconsole.getItem(8); // 없음
 				user.getParty().add(6);
 				npcImg(lblNpcImg);
+				for (int i = 0; i < lblNpcImg.size(); i++) {
+					npcImgHover(lblNpcImg.get(i));
+				}
 				break;
 			}
 
@@ -150,8 +157,10 @@ public class StoryPnl extends JFrame {
 				itemconsole.getItem(2); // 천본앵?
 				user.getParty().add(7);
 				npcImg(lblNpcImg);
-				itemconsole.lblImg(userInven, user.getInventory());
-				itemconsole.lblCount(userInven, userInvenCount);
+				for (int i = 0; i < lblNpcImg.size(); i++) {
+					npcImgHover(lblNpcImg.get(i));
+				}
+				userInven();
 				break;
 			}
 
@@ -159,6 +168,9 @@ public class StoryPnl extends JFrame {
 //				itemconsole.getItem(8); // 없음
 				user.getParty().add(8);
 				npcImg(lblNpcImg);
+				for (int i = 0; i < lblNpcImg.size(); i++) {
+					npcImgHover(lblNpcImg.get(i));
+				}
 				break;
 			}
 

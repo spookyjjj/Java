@@ -453,9 +453,12 @@ public class ItemConsole {
 	// 파티 인원수를 파라미터로 받아서 낮은 레어도 rcv부터 소비하기
 	public void eatRcv() {
 		int partyNum = user.getParty().size() + 1; // 파티원 + 1(나)
+		System.out.println(partyNum);
 		List<Item> inven = user.getInventory();
+		System.out.println(inven.toString());
 		int eatCount = 0;
 		List<Integer> deleteMemo = new ArrayList<>();
+		System.out.println(deleteMemo);
 		for (int i = 0; i < inven.size(); i++) {
 			if (inven.get(i).getItem_id() == 10) { // 건빵
 				int needCount = (partyNum - eatCount);
@@ -549,6 +552,8 @@ public class ItemConsole {
 				}
 			}
 		}
+		System.out.println(deleteMemo);
+		System.out.println(deleteMemo.size());
 		// 지울애들 담아 놨던거 여기서 찐으로 지움
 		if (deleteMemo.size() != 0) {
 			for (int i = 0; i < deleteMemo.size(); i++) {
@@ -556,6 +561,8 @@ public class ItemConsole {
 				user.getInventory().remove(delete);
 			}
 		} 
+		System.out.println(partyNum);
+		System.out.println(eatCount);
 		if (partyNum > eatCount) {
 			user.setHp(user.getHp() - 1);
 			user.setMental(user.getMental() - 1);

@@ -12,5 +12,8 @@
 - https://ateraimemo.com/Swing.html
 - https://truehong.tistory.com/19 (객체폐기)
 
-### 할거
+### 해야할 것
 - 하루 지나면 아이템 개수 빠지는거 집어넣기
+- thread? -> 효과음 넣기에 적용가능?
+  - 노래를 튼다는것 자체가 바이트 단위로 쪼개서 재생시키는 for문임! 반복에 빠져있으니깐 노래 나오는 중에는 딴짓을 못함
+- 왜 connection 밖으로 빼놓고서 autocommit/rollback을 사용하지 않았는가?

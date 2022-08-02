@@ -45,7 +45,7 @@ public class StoryPnl2 extends JFrame {
 	private Bulletin bul;
 	private JPanel pnlBBG;
 	private NpcDao npcdao = new NpcDao();
-	private UserInfo user = new UserInfo();
+	private UserInfo user;
 	private List<Story> list;
 	private List<ChoiceSum> choiceList;
 	private int sn = 0;
@@ -58,7 +58,7 @@ public class StoryPnl2 extends JFrame {
 	private List<Character> path = new ArrayList<>();
 	private List<Integer> path_c = new ArrayList<>();
 	private List<JLabel> lblNpcImg;
-	private ItemConsole itemconsole = new ItemConsole(new ItemDao(), user);
+	private ItemConsole itemconsole;
 	
 	private URL hp = Login.class.getClassLoader().getResource("700.png");
 	private ImageIcon fullhp = new ImageIcon(hp);
@@ -271,17 +271,138 @@ public class StoryPnl2 extends JFrame {
 		}
 	}
 	
+	//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~민트초코 개싫어
+		// 파티 인원수를 파라미터로 받아서 낮은 레어도 rcv부터 소비하기
+		public void eatRcv() {
+			int partyNum = user.getParty().size() + 1; // 파티원 + 1(나)
+			System.out.println(partyNum);
+			List<Item> inven = user.getInventory();
+			System.out.println(inven.toString());
+			int eatCount = 0;
+			List<Integer> deleteMemo = new ArrayList<>();
+			System.out.println(deleteMemo);
+			for (int i = 0; i < inven.size(); i++) {
+				if (inven.get(i).getItem_id() == 10) { // 건빵
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 13) { // 생수
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 9) { // 육포
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 11) { // 박카스
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 23) { // 약과
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 14) { // 통조림
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+				if (inven.get(i).getItem_id() == 15) { // 커피가루
+					int needCount = (partyNum - eatCount);
+					int count = inven.get(i).getItem_count();
+					if (needCount >= count) { // 필요량이 현재 가지고 있는 개수 보다 많거나 같다면 모두 사용
+						deleteMemo.add(i);
+//						user.getInventory().remove(i);
+						eatCount += count;
+					} else if (needCount > 0 && needCount < count) { // 필요량이 현재 가지고 있는 개수 보다 적다면 필요한 만큼만 사용
+						count -= needCount;
+						inven.get(i).setItem_count(count); // 쓰고 남은 량으로 개수 수정
+						eatCount += needCount;
+					}
+				}
+			}
+			System.out.println(deleteMemo);
+			System.out.println(deleteMemo.size());
+			// 지울애들 담아 놨던거 여기서 찐으로 지움
+			if (deleteMemo.size() != 0) {
+				for (int i = 0; i < deleteMemo.size(); i++) {
+					Item delete = inven.get(deleteMemo.get(i));
+					user.getInventory().remove(delete);
+				}
+			} 
+			System.out.println(partyNum);
+			System.out.println(eatCount);
+			if (partyNum > eatCount) {
+				user.setHp(user.getHp() - 1);
+				user.setMental(user.getMental() - 1);
+			}
+		}
 
 	public StoryPnl2(UserInfo user , BusanUser loguser) {
 		super("부산2044");
 		this.user = user;
+		this.itemconsole = new ItemConsole(new ItemDao(), user);
 		this.loguser = loguser;
 		
 		
 
-		System.out.println(user.getInventory().toString());
-		// 인벤토리 예시
-		System.out.println(user.getParty());
+		System.out.println("넘어와서 인벤1" + user.getInventory().toString());
+		System.out.println("넘어와서 인벤1" + this.user.getInventory().toString());
+		System.out.println("넘어와서 파티1" + user.getParty());
+		System.out.println("넘어와서 파티1" + this.user.getParty());
 	
 		
 		// 제일 큰 패널
@@ -381,11 +502,6 @@ public class StoryPnl2 extends JFrame {
 //		ToolTipManager m = ToolTipManager.sharedInstance();
 //		m.setInitialDelay(0);
 
-
-		
-		
-		
-		
 //		List<Integer> party = new ArrayList<>(Arrays.asList(2));
 //	    user.setParty(party);
 		
@@ -433,7 +549,9 @@ public class StoryPnl2 extends JFrame {
 //		for (int i = 0; i < user.getInventory().size(); i++) {
 //			user.setInventory(new ArrayList<Item>(Arrays.asList(user.getInventory().get(i))));			
 //		}
-	
+		
+		userInven();
+		npcImg(lblNpcImg);
 // --------------------------------------------
 
 
@@ -512,8 +630,7 @@ public class StoryPnl2 extends JFrame {
 			}
 		});
 		
-		userInven();
-		npcImg(lblNpcImg);
+		
 		setSize(1200, 900);
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);

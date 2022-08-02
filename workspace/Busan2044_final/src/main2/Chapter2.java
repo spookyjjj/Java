@@ -598,6 +598,11 @@ public class Chapter2 extends JPanel {
 //		user = ba.setUserData();
 //		Enemy_Dao ed = new Enemy_Dao();
 		//////////////////////////////////////
+		
+		System.out.println("넘어와서 인벤2" + user.getInventory().toString());
+		System.out.println("넘어와서 인벤2" + this.user.getInventory().toString());
+		System.out.println("넘어와서 파티2" + user.getParty());
+		System.out.println("넘어와서 파티2" + this.user.getParty());
 
 		pnlTxt2 = new JPanel();
 		pnlTxt2.setBounds(0, 0, 824, 841); // 크기를 정해줘야 다른 class에서 사용 가능

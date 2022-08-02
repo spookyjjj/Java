@@ -11,3 +11,6 @@
 - https://www.delftstack.com/ko/howto/java/countdown-timer-java/
 - https://ateraimemo.com/Swing.html
 - https://truehong.tistory.com/19 (객체폐기)
+
+### 할거
+- 하루 지나면 아이템 개수 빠지는거 집어넣기
